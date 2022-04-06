@@ -11,6 +11,22 @@ import Combine
 struct RentView: View {
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
+    private var city_tf_text: String = "Város"
+    private var postal_code_tf_text: String = "Irányítószám"
+    private var street_name_tf_text: String = "Utca"
+    private var latitude_text: String = "Szélességi koord."
+    private var longitude_text: String = "Hosszúsági koord."
+    private var accom_type_text: String = "Szállás típusa"
+    private var type_apartment: String = "Apartman"
+    private var type_room: String = "Szoba"
+    private var type_couch: String = "Kanapé"
+    private var payment_methods_text: String = "Elfogadott fizetési módok"
+    private var price_a_night_text: String = "Ár/éj"
+    private var properties_text: String = "Tulajdonságok"
+    private var adv_button_text: String = "Meghirdet"
+    private var nav_title: String = "Szoba kiadása"
+    
+    
     @State private var rent_city: String = ""
     @State private var rent_postal_code: String = ""
     @State private var rent_street: String = ""
@@ -20,7 +36,8 @@ struct RentView: View {
     @State private var accepted_payment_methods = [
         AcceptedPaymentMethod(name: "Készpénz"),
         AcceptedPaymentMethod(name: "Bankkártya"),
-        AcceptedPaymentMethod(name: "PayPal")
+        AcceptedPaymentMethod(name: "PayPal"),
+        AcceptedPaymentMethod(name: "Ellenszolgáltatás")
     ]
     @State private var payment_methods_selections = Set<UUID>()
     @State private var price_a_night = ""
@@ -50,17 +67,17 @@ struct RentView: View {
                 VStack(spacing: 30) {
                     // cím adatok megadása
                     Group {
-                        TextField("Város", text: $rent_city)
+                        TextField(city_tf_text, text: $rent_city)
                             .frame(width: 300, height: 30, alignment: .center)
                         
-                        TextField("Irányítószám", text: $rent_postal_code)
+                        TextField(postal_code_tf_text, text: $rent_postal_code)
                             .frame(width: 300, height: 30, alignment: .center)
                         
-                        TextField("Utca", text: $rent_street)
+                        TextField(street_name_tf_text, text: $rent_street)
                             .frame(width: 300, height: 30, alignment: .center)
                         
                         HStack(spacing: 50) {
-                            TextField("Szélességi koord.", text: $rent_latitude)
+                            TextField(latitude_text, text: $rent_latitude)
                                 .frame(width: 120, height: 30, alignment: .leading)
                                 .keyboardType(.numberPad)
                                 .onReceive(Just(rent_latitude)) { newValue in
@@ -70,7 +87,7 @@ struct RentView: View {
                                     }
                                 }
                             
-                            TextField("Hosszúsági koord.", text: $rent_longitude)
+                            TextField(longitude_text, text: $rent_longitude)
                                 .frame(width: 120, height: 30, alignment: .trailing)
                                 .keyboardType(.numberPad)
                                 .onReceive(Just(rent_longitude)) { newValue in
@@ -82,32 +99,32 @@ struct RentView: View {
                         }
                         
                         // szállás típusa
-                        Text("Szállás típusa")
+                        Text(accom_type_text)
                             .font(.system(size: 14, weight: .bold))
                         
-                        Picker(selection: $accom_type, label: Text("Szállás típusa")) {
-                            Text("Apartman").tag(1)
-                            Text("Szoba").tag(2)
-                            Text("Kanapé").tag(3)
+                        Picker(selection: $accom_type, label: Text(accom_type_text)) {
+                            Text(type_apartment).tag(1)
+                            Text(type_room).tag(2)
+                            Text(type_couch).tag(3)
                         }
                         
                         // elfogadott fizetési módok
                         Group {
-                            Text("Elfogadott fizetési módok")
+                            Text(payment_methods_text)
                                 .font(.system(size: 14, weight: .bold))
                             List(accepted_payment_methods, selection: $payment_methods_selections) {
                                 Text($0.name)
                             }
-                            .frame(minHeight: minRowHeight * 4)
+                            .frame(minHeight: minRowHeight * 5)
                             .toolbar {EditButton()}
                         }
                         
-                        TextField("Ár/éj", text: $price_a_night)
+                        TextField(price_a_night_text, text: $price_a_night)
                             .frame(width: 120, height: 30, alignment: .center)
                         
                         // tulajdonságok
                         Group {
-                            Text("Tulajdonságok")
+                            Text(properties_text)
                                 .font(.system(size: 14, weight: .bold))
                             List(other_needs, selection: $other_needs_selections) {
                                 Text($0.name)
@@ -117,13 +134,13 @@ struct RentView: View {
                         }
                         
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                            Text("Meghirdet")
+                            Text(adv_button_text)
                         }
                         .border(.blue)
                     }
                 }
             }
-            .navigationTitle("Szoba kiadása")
+            .navigationTitle(nav_title)
         }
     }
 }

@@ -12,6 +12,22 @@ struct BookingView: View {
     
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
+    private var city_tf_text: String = "Város"
+    private var stay_start_text: String = "Tartózkodás kezdete"
+    private var stay_end_text: String = "Tartózkodás vége"
+    private var payment_method_text: String = "Fizetés módja"
+    private var payment_method_cash: String = "Készpénz"
+    private var payment_method_card: String = "Bankkártya"
+    private var payment_method_service: String = "Ellenszolgáltatás"
+    private var preferred_price_range_text: String = "Preferált árkategória"
+    private var from_text: String = "-tól"
+    private var to_text: String = "-ig"
+    private var preferred_ratings_text: String = "Preferált értékelés"
+    private var other_needs_text: String = "Egyéb igények"
+    private var search_text: String = "Keresés"
+    private var nav_title = "Foglalás"
+    
+    
     @State private var booking_city: String = ""
     @State private var booking_start = Date()
     @State private var booking_end = Date()
@@ -38,41 +54,41 @@ struct BookingView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 30) {                    
-                    TextField("Város", text: $booking_city)
+                    TextField(city_tf_text, text: $booking_city)
                         .frame(width: 300, height: 30, alignment: .center)
                     
                     HStack(spacing: 50) {
                         VStack {
-                            Text("Tartózkodás kezdete")
+                            Text(stay_start_text)
                                 .font(.system(size: 14, weight: .bold))
-                            DatePicker("Tartózkodás kezdete", selection: $booking_start, displayedComponents: [.date])
+                            DatePicker(stay_start_text, selection: $booking_start, displayedComponents: [.date])
                                 .frame(width: 125, height: 30, alignment: .center)
                         }
                         VStack {
-                            Text("Tartózkodás vége")
+                            Text(stay_end_text)
                                 .font(.system(size: 14, weight: .bold))
-                            DatePicker("Tartózkodás kezdete", selection: $booking_end, displayedComponents: [.date])
+                            DatePicker(stay_end_text, selection: $booking_end, displayedComponents: [.date])
                                 .frame(width: 125, height: 30, alignment: .center)
                         }
                     }
                     
-                    Text("Fizetés módja")
+                    Text(payment_method_text)
                         .font(.system(size: 14, weight: .bold))
                     
-                    Picker(selection: $payment_method, label: Text("Fizetés módja")) {
-                        Text("Bankkártya").tag(1)
-                        Text("Készpénz").tag(2)
-                        Text("Ellenszolgáltatás").tag(3)
+                    Picker(selection: $payment_method, label: Text(payment_method_text)) {
+                        Text(payment_method_card).tag(1)
+                        Text(payment_method_cash).tag(2)
+                        Text(payment_method_service).tag(3)
                     }
                     
-                    Text("Preferált árkategória")
+                    Text(preferred_price_range_text)
                         .font(.system(size: 14, weight: .bold))
                     
                     HStack(spacing: 50) {
                         VStack {
-                            Text("-tól")
+                            Text(from_text)
                                 .font(.system(size: 12))
-                            TextField("-tól", text: $price_from)
+                            TextField(from_text, text: $price_from)
                                 .keyboardType(.numberPad)
                                 .onReceive(Just(price_from)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
@@ -82,9 +98,9 @@ struct BookingView: View {
                                 }
                         }
                         VStack {
-                            Text("-ig")
+                            Text(to_text)
                                 .font(.system(size: 12))
-                            TextField("-ig", text: $price_to)
+                            TextField(to_text, text: $price_to)
                                 .keyboardType(.numberPad)
                                 .onReceive(Just(price_to)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
@@ -95,14 +111,14 @@ struct BookingView: View {
                         }
                     }
                     
-                    Text("Preferált értékelés")
+                    Text(preferred_price_range_text)
                         .font(.system(size: 14, weight: .bold))
                     
                     HStack(spacing: 50) {
                         VStack {
-                            Text("-tól")
+                            Text(from_text)
                                 .font(.system(size: 12))
-                            TextField("-tól", text: $rating_from)
+                            TextField(from_text, text: $rating_from)
                                 .keyboardType(.numberPad)
                                 .onReceive(Just(rating_from)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
@@ -112,9 +128,9 @@ struct BookingView: View {
                                 }
                         }
                         VStack {
-                            Text("-ig")
+                            Text(to_text)
                                 .font(.system(size: 12))
-                            TextField("-ig", text: $rating_to)
+                            TextField(to_text, text: $rating_to)
                                 .keyboardType(.numberPad)
                                 .onReceive(Just(rating_to)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
@@ -126,7 +142,7 @@ struct BookingView: View {
                     }
                     
                     Group {
-                        Text("Egyéb igények")
+                        Text(other_needs_text)
                             .font(.system(size: 14, weight: .bold))
                         
                         List(other_needs, selection: $other_needs_selections) {
@@ -136,13 +152,13 @@ struct BookingView: View {
                         .toolbar {EditButton()}
                         
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                            Text("Keresés")
+                            Text(search_text)
                         }
                         .border(.blue)
                     }
                 }
             }
-            .navigationTitle("Foglalás")
+            .navigationTitle(nav_title)
         }
     }
 }

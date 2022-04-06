@@ -9,6 +9,9 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
+    private var booking_tab_text: String = "Foglalás"
+    private var renting_tab_text: String = "Szoba kiadása"
+    private var profile_tab_text: String = "Profil"
     
     var body: some View {
         //TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
@@ -16,12 +19,18 @@ struct ContentView: View {
             // "Foglalás" tab
             BookingView()
                 .tabItem {
-                    Label("Foglalás", systemImage: "calendar")
+                    Label(booking_tab_text, systemImage: "calendar")
                 }
             // "Szoba kiadása" tab
             RentView()
                 .tabItem {
-                    Label("Szoba kiadása", systemImage: "house")
+                    Label(renting_tab_text, systemImage: "house")
+                }
+            
+            // "Profil" tab
+            ProfileView()
+                .tabItem() {
+                    Label(profile_tab_text, systemImage: "person")
                 }
         }
     }
