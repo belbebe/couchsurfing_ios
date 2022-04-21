@@ -17,12 +17,13 @@ struct ContentView: View {
         //TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
         TabView {
             // "Foglalás" tab
-            BookingView()
+            //BookingView()
+            BookingViewForm()
                 .tabItem {
                     Label(booking_tab_text, systemImage: "calendar")
                 }
             // "Szoba kiadása" tab
-            RentView()
+            RentViewForm()
                 .tabItem {
                     Label(renting_tab_text, systemImage: "house")
                 }

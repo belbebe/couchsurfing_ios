@@ -45,18 +45,15 @@ struct BookingView: View {
     ]
     @State private var other_needs_selections = Set<UUID>()
     
-    private struct OtherNeed: Identifiable, Hashable {
-        let name: String
-        let id = UUID()
-    }
-    
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 30) {                    
+                VStack(spacing: 30) {
+                    // city search bar
                     TextField(city_tf_text, text: $booking_city)
                         .frame(width: 300, height: 30, alignment: .center)
                     
+                    // stay start and end date
                     HStack(spacing: 50) {
                         VStack {
                             Text(stay_start_text)
@@ -72,6 +69,7 @@ struct BookingView: View {
                         }
                     }
                     
+                    // payment method
                     Text(payment_method_text)
                         .font(.system(size: 14, weight: .bold))
                     
@@ -81,6 +79,7 @@ struct BookingView: View {
                         Text(payment_method_service).tag(3)
                     }
                     
+                    // price range
                     Text(preferred_price_range_text)
                         .font(.system(size: 14, weight: .bold))
                     
@@ -111,7 +110,8 @@ struct BookingView: View {
                         }
                     }
                     
-                    Text(preferred_price_range_text)
+                    // rating range
+                    Text(preferred_ratings_text)
                         .font(.system(size: 14, weight: .bold))
                     
                     HStack(spacing: 50) {
@@ -141,6 +141,7 @@ struct BookingView: View {
                         }
                     }
                     
+                    // other needs
                     Group {
                         Text(other_needs_text)
                             .font(.system(size: 14, weight: .bold))

@@ -50,11 +50,6 @@ struct RentView: View {
     ]
     @State private var other_needs_selections = Set<UUID>()
     
-    private struct OtherNeed: Identifiable, Hashable {
-        let name: String
-        let id = UUID()
-    }
-    
     private struct AcceptedPaymentMethod: Hashable, Identifiable {
         let name: String
         let id = UUID()
