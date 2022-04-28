@@ -18,6 +18,10 @@
 		239B025C27D0415C0055AEBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B025B27D0415C0055AEBA /* ContentView.swift */; };
 		239B025E27D0415D0055AEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239B025D27D0415D0055AEBA /* Assets.xcassets */; };
 		239B026127D0415D0055AEBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239B026027D0415D0055AEBA /* Preview Assets.xcassets */; };
+		23C5F8A12819CA86005D928F /* CouchSurfongCustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C5F8A02819CA86005D928F /* CouchSurfongCustomColor.swift */; };
+		23C5F8A32819EF53005D928F /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C5F8A22819EF53005D928F /* LeaderboardView.swift */; };
+		23C5F8A52819F3E8005D928F /* UserLeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C5F8A42819F3E8005D928F /* UserLeaderboardView.swift */; };
+		23C5F8A7281A0520005D928F /* UserLeaderboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */; };
 		23D678A727E2BA5F001AE964 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +38,10 @@
 		239B025B27D0415C0055AEBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		239B025D27D0415D0055AEBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		239B026027D0415D0055AEBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		23C5F8A02819CA86005D928F /* CouchSurfongCustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchSurfongCustomColor.swift; sourceTree = "<group>"; };
+		23C5F8A22819EF53005D928F /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		23C5F8A42819F3E8005D928F /* UserLeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLeaderboardView.swift; sourceTree = "<group>"; };
+		23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLeaderboardInfo.swift; sourceTree = "<group>"; };
 		23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,11 +82,15 @@
 				23825AC72810A3DF00AC73B6 /* OtherNeed.swift */,
 				23825ACD2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift */,
 				239B025D27D0415D0055AEBA /* Assets.xcassets */,
+				23C5F8A02819CA86005D928F /* CouchSurfongCustomColor.swift */,
 				239B025F27D0415D0055AEBA /* Preview Content */,
 				23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */,
 				232F076727F50A2C00BB26A6 /* RentView.swift */,
 				23825AD12810CA0000AC73B6 /* RentViewForm.swift */,
 				2355F2EF27FE48F40013DC26 /* ProfileView.swift */,
+				23C5F8A22819EF53005D928F /* LeaderboardView.swift */,
+				23C5F8A42819F3E8005D928F /* UserLeaderboardView.swift */,
+				23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */,
 			);
 			path = couchsurfing_app;
 			sourceTree = "<group>";
@@ -162,8 +174,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				23825AC82810A3DF00AC73B6 /* OtherNeed.swift in Sources */,
+				23C5F8A12819CA86005D928F /* CouchSurfongCustomColor.swift in Sources */,
+				23C5F8A7281A0520005D928F /* UserLeaderboardInfo.swift in Sources */,
 				23825AD22810CA0000AC73B6 /* RentViewForm.swift in Sources */,
+				23C5F8A52819F3E8005D928F /* UserLeaderboardView.swift in Sources */,
 				239B025C27D0415C0055AEBA /* ContentView.swift in Sources */,
+				23C5F8A32819EF53005D928F /* LeaderboardView.swift in Sources */,
 				23D678A727E2BA5F001AE964 /* MultipleSelectionRow.swift in Sources */,
 				23825AC62810879B00AC73B6 /* BookingViewForm.swift in Sources */,
 				23825ACE2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift in Sources */,

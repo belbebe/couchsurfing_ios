@@ -132,8 +132,10 @@ struct BookingViewForm: View {
                 Section {
                     Button(action: {}) {
                         Text(search_text)
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                     .foregroundColor(.black)
+                    .listRowBackground(CouchSurfingCustomColor.buttonBackground)
                 }
                 .font(.title)
                 

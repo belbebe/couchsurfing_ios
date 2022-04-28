@@ -9,9 +9,10 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    private var booking_tab_text: String = "Foglalás"
-    private var renting_tab_text: String = "Szoba kiadása"
-    private var profile_tab_text: String = "Profil"
+    private let booking_tab_text: String = "Foglalás"
+    private let renting_tab_text: String = "Szoba kiadása"
+    private let profile_tab_text: String = "Profil"
+    private let leaderboard_tab_text: String = "Ranglista"
     
     var body: some View {
         //TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
@@ -26,6 +27,12 @@ struct ContentView: View {
             RentViewForm()
                 .tabItem {
                     Label(renting_tab_text, systemImage: "house")
+                }
+            
+            // "Ranglista" tab
+            LeaderboardView()
+                .tabItem() {
+                    Label(leaderboard_tab_text, systemImage: "list.number")
                 }
             
             // "Profil" tab

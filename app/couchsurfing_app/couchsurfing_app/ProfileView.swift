@@ -35,37 +35,37 @@ struct ProfileView: View {
                         VStack(alignment: .leading, spacing: 15) {
                             VStack(alignment: .leading) {
                                 Text(name_text)
-                                    .font(.system(size: 14))
+                                    .font(.body)
                                 Text(sample_name)
-                                    .font(.system(size: 14, weight: .bold))
+                                    .font(Font.body.weight(.bold))
                             }
                             
                             VStack(alignment: .leading) {
                                 Text(username_text)
-                                    .font(.system(size: 14))
+                                    .font(.body)
                                 Text(sample_username)
-                                    .font(.system(size: 14, weight: .bold))
+                                    .font(Font.body.weight(.bold))
                             }
                             
                             VStack(alignment: .leading) {
                                 Text(date_of_birth)
-                                    .font(.system(size: 14))
+                                    .font(.body)
                                 Text(sample_birth_date)
-                                    .font(.system(size: 14, weight: .bold))
+                                    .font(Font.body.weight(.bold))
                             }
                             
                             VStack(alignment: .leading) {
                                 Text(email_text)
-                                    .font(.system(size: 14))
+                                    .font(.body)
                                 Text(sample_email)
-                                    .font(.system(size: 14, weight: .bold))
+                                    .font(Font.body.weight(.bold))
                             }
                             
                             VStack(alignment: .leading) {
                                 Text(phone_text)
-                                    .font(.system(size: 14))
+                                    .font(.body)
                                 Text(sample_phone)
-                                    .font(.system(size: 14, weight: .bold))
+                                    .font(Font.body.weight(.bold))
                             }
                         }
                         
@@ -74,24 +74,47 @@ struct ProfileView: View {
                             .frame(width: 130, height: 130, alignment: .trailing)
                     }
                     
-                    Spacer()
-                        .frame(height: 150)
+                    Spacer(minLength: 110)
+                        //.frame(height: 150)
                     
                     // gombok elhelyezése
                     Group {
                         Button(action: {}) {
                             Text(modify_data_button_text)
                         }
+                            .padding(15)
+                            .background(CouchSurfingCustomColor.buttonBackground)
+                            .foregroundColor(.black)
+                            .cornerRadius(15)
+                            .padding(3)
+                            .background(CouchSurfingCustomColor.baseColor)
+                            .cornerRadius(15)
+                        
                         Spacer()
-                            .frame(height: 50)
+                            .frame(height: 15)
                         Button(action: {}) {
                             Text(modify_passw_button_text)
                         }
+                            .padding(15)
+                            .background(CouchSurfingCustomColor.buttonBackground)
+                            .foregroundColor(.black)
+                            .cornerRadius(15)
+                            .padding(3)
+                            .background(CouchSurfingCustomColor.baseColor)
+                            .cornerRadius(15)
+                        
                         Spacer()
-                            .frame(height: 50)
+                            .frame(height: 15)
                         Button(action: {}) {
                             Text(sign_out_text)
                         }
+                            .padding(15)
+                            .background(CouchSurfingCustomColor.signOutColor)
+                            .foregroundColor(.black)
+                            .cornerRadius(15)
+                            .padding(3)
+                            .background(.red)
+                            .cornerRadius(15)
                     }
                 }
             }

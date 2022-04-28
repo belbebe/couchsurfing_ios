@@ -130,8 +130,10 @@ struct RentViewForm: View {
                 Section {
                     Button(action: {}) {
                         Text(adv_button_text)
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                     .foregroundColor(.black)
+                    .listRowBackground(CouchSurfingCustomColor.buttonBackground)
                 }
                 .font(.title)
             }
