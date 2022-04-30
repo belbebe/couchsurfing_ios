@@ -81,7 +81,7 @@ struct ProfileView: View {
                     
                     // gombok elhelyezése
                     Group {
-                        HStack {
+                        HStack(spacing: 15) {
                             Button(action: {}) {
                                 Text(view_bookings_text)
                                     .multilineTextAlignment(.center)

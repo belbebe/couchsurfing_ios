@@ -16,7 +16,7 @@ struct BookingViewForm: View {
     private let stay_end_text = "Tartózkodás vége"
     private let payment_method_text = "Fizetés módja"
     private let payment_methods = ["Készpénz", "Bankkártya", "Ellenszolgáltatás"]
-    private let price_range_text = "Preferált árkategória"
+    private let price_range_text = "Preferált árkategória (HUF)"
     private let from_text = "-tól"
     private let to_text = "-ig"
     private let rating_range_text = "Preferált értékelés"
@@ -59,9 +59,9 @@ struct BookingViewForm: View {
                         .focused($textfield_is_focused)
                     
                     // stay start and end date
-                    DatePicker(stay_start_text, selection: $stay_start_date, displayedComponents: [.date])
+                    DatePicker(stay_start_text, selection: $stay_start_date, in: Date()..., displayedComponents: [.date])
                     
-                    DatePicker(stay_end_text, selection: $stay_end_date, displayedComponents: [.date])
+                    DatePicker(stay_end_text, selection: $stay_end_date, in: Calendar.current.date(byAdding: .day, value: 1, to: Date())!..., displayedComponents: [.date])
                     
                     // payment method
                     Picker(payment_method_text, selection: $selected_payment_method) {
@@ -77,7 +77,7 @@ struct BookingViewForm: View {
                 Section {
                     Toggle(from_text, isOn: $preferred_price_range_from_toggle)
                     if(preferred_price_range_from_toggle) {
-                        TextField(from_text, value: $price_from, format: .currency(code: Locale.current.currencyCode ?? currency_code))
+                        TextField(from_text, value: $price_from, format: .number)
                             .keyboardType(.decimalPad)
                             .focused($textfield_is_focused)
                         // using .decimalPad prevents entering invalid texts and filtering input data automatically
@@ -85,7 +85,7 @@ struct BookingViewForm: View {
                     
                     Toggle(to_text, isOn: $preferred_price_range_to_toggle)
                     if(preferred_price_range_to_toggle) {
-                        TextField(to_text, value: $price_to, format: .currency(code: Locale.current.currencyCode ?? currency_code))
+                        TextField(to_text, value: $price_to, format: .number)
                             .keyboardType(.decimalPad)
                             .focused($textfield_is_focused)
                     }

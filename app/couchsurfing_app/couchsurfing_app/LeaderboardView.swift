@@ -26,6 +26,11 @@ struct LeaderboardView: View {
     ]
     @State private var picker_state = "Foglalók"
     
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(CouchSurfingCustomColor.buttonBackground)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -33,6 +38,7 @@ struct LeaderboardView: View {
                 Picker(picker_label, selection: $picker_state) {
                     ForEach(picker_texts, id: \.self) {
                         Text($0)
+                            .background(CouchSurfingCustomColor.buttonBackground)
                     }
                 }
                 .pickerStyle(.segmented)
