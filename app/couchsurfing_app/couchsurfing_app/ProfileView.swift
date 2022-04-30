@@ -23,6 +23,8 @@ struct ProfileView: View {
     private var modify_data_button_text: String = "Adatok módosítása"
     private var modify_passw_button_text: String = "Jelszó módosítása"
     private var sign_out_text: String = "Kijelentkezés"
+    private var view_rents_text: String = "Kiadások\nmegtekintése"
+    private var view_bookings_text: String = "Foglalások\nmegtekintése"
     
     var body: some View {
         NavigationView {
@@ -74,11 +76,40 @@ struct ProfileView: View {
                             .frame(width: 130, height: 130, alignment: .trailing)
                     }
                     
-                    Spacer(minLength: 110)
+                    Spacer(minLength: 80)
                         //.frame(height: 150)
                     
                     // gombok elhelyezése
                     Group {
+                        HStack {
+                            Button(action: {}) {
+                                Text(view_bookings_text)
+                                    .multilineTextAlignment(.center)
+                            }
+                                .padding(15)
+                                .background(CouchSurfingCustomColor.buttonBackground)
+                                .foregroundColor(.black)
+                                .cornerRadius(15)
+                                .padding(3)
+                                .background(CouchSurfingCustomColor.baseColor)
+                                .cornerRadius(15)
+                            
+                            Button(action: {}) {
+                                Text(view_rents_text)
+                                    .multilineTextAlignment(.center)
+                            }
+                                .padding(15)
+                                .background(CouchSurfingCustomColor.buttonBackground)
+                                .foregroundColor(.black)
+                                .cornerRadius(15)
+                                .padding(3)
+                                .background(CouchSurfingCustomColor.baseColor)
+                                .cornerRadius(15)
+                        }
+                        
+                        Spacer()
+                            .frame(height: 15)
+                        
                         Button(action: {}) {
                             Text(modify_data_button_text)
                         }
