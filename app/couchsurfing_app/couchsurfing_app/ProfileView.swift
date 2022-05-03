@@ -82,70 +82,45 @@ struct ProfileView: View {
                     // gombok elhelyezése
                     Group {
                         HStack(spacing: 15) {
+                            // Foglalás megtekintése
                             Button(action: {}) {
                                 Text(view_bookings_text)
                                     .multilineTextAlignment(.center)
                             }
-                                .padding(15)
-                                .background(CouchSurfingCustomColor.buttonBackground)
-                                .foregroundColor(.black)
-                                .cornerRadius(15)
-                                .padding(3)
-                                .background(CouchSurfingCustomColor.baseColor)
-                                .cornerRadius(15)
+                            .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
                             
+                            // Kiadások megtekintése
                             Button(action: {}) {
                                 Text(view_rents_text)
                                     .multilineTextAlignment(.center)
                             }
-                                .padding(15)
-                                .background(CouchSurfingCustomColor.buttonBackground)
-                                .foregroundColor(.black)
-                                .cornerRadius(15)
-                                .padding(3)
-                                .background(CouchSurfingCustomColor.baseColor)
-                                .cornerRadius(15)
+                                .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
                         }
                         
                         Spacer()
                             .frame(height: 15)
                         
+                        // Adatok módosítása
                         Button(action: {}) {
                             Text(modify_data_button_text)
                         }
-                            .padding(15)
-                            .background(CouchSurfingCustomColor.buttonBackground)
-                            .foregroundColor(.black)
-                            .cornerRadius(15)
-                            .padding(3)
-                            .background(CouchSurfingCustomColor.baseColor)
-                            .cornerRadius(15)
+                            .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
                         
                         Spacer()
                             .frame(height: 15)
+                        // Jelszó módosítása
                         Button(action: {}) {
                             Text(modify_passw_button_text)
                         }
-                            .padding(15)
-                            .background(CouchSurfingCustomColor.buttonBackground)
-                            .foregroundColor(.black)
-                            .cornerRadius(15)
-                            .padding(3)
-                            .background(CouchSurfingCustomColor.baseColor)
-                            .cornerRadius(15)
+                            .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
                         
                         Spacer()
                             .frame(height: 15)
+                        // Kijelentkezés
                         Button(action: {}) {
                             Text(sign_out_text)
                         }
-                            .padding(15)
-                            .background(CouchSurfingCustomColor.signOutColor)
-                            .foregroundColor(.black)
-                            .cornerRadius(15)
-                            .padding(3)
-                            .background(.red)
-                            .cornerRadius(15)
+                            .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.signOutColor, background: .red))
                     }
                 }
             }
