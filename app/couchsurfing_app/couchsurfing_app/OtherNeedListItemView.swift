@@ -1,0 +1,20 @@
+//
+//  OtherNeedListItemView.swift
+//  couchsurfing_app
+//
+//  Created by Belcsik Bence on 2022. 04. 20..
+//
+
+import SwiftUI
+
+struct OtherNeedListItemView: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct OtherNeedListItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        OtherNeedListItemView()
+    }
+}
