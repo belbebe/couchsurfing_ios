@@ -10,7 +10,7 @@ import SwiftUI
 struct BookingViewForm: View {
     
     private let nav_title = "Foglalás"
-    private var basic_info_text = "Kötelező mezők"
+    private let basic_info_text = "Kötelező mezők"
     private let city_tf_text = "Város"
     private let stay_start_text = "Tartózkodás kezdete"
     private let stay_end_text = "Tartózkodás vége"

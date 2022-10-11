@@ -101,15 +101,15 @@ struct ProfileView: View {
                             .frame(height: 15)
                         
                         // Adatok módosítása
-                        Button(action: {}) {
+                        NavigationLink(destination: SettingsProfileViewForm()) {
                             Text(modify_data_button_text)
                         }
-                            .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
+                        .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
                         
                         Spacer()
                             .frame(height: 15)
                         // Jelszó módosítása
-                        Button(action: {}) {
+                        NavigationLink(destination: SettingsPasswordViewForm()) {
                             Text(modify_passw_button_text)
                         }
                             .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))

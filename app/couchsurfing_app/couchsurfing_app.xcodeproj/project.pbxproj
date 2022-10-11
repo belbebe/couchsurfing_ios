@@ -10,10 +10,13 @@
 		232F076827F50A2C00BB26A6 /* RentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F076727F50A2C00BB26A6 /* RentView.swift */; };
 		232F076A27F50EE600BB26A6 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F076927F50EE600BB26A6 /* BookingView.swift */; };
 		2355F2F027FE48F40013DC26 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355F2EF27FE48F40013DC26 /* ProfileView.swift */; };
+		237D562C28ECF733000C4CF7 /* SettingsProfileViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237D562B28ECF733000C4CF7 /* SettingsProfileViewForm.swift */; };
 		23825AC62810879B00AC73B6 /* BookingViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23825AC52810879B00AC73B6 /* BookingViewForm.swift */; };
 		23825AC82810A3DF00AC73B6 /* OtherNeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23825AC72810A3DF00AC73B6 /* OtherNeed.swift */; };
 		23825ACE2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23825ACD2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift */; };
 		23825AD22810CA0000AC73B6 /* RentViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23825AD12810CA0000AC73B6 /* RentViewForm.swift */; };
+		2389E5FC28F60ED500EF2669 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389E5FB28F60ED500EF2669 /* ImagePicker.swift */; };
+		2389E5FE28F61B3000EF2669 /* SettingsPasswordViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389E5FD28F61B3000EF2669 /* SettingsPasswordViewForm.swift */; };
 		239B025A27D0415C0055AEBA /* couchsurfing_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B025927D0415C0055AEBA /* couchsurfing_appApp.swift */; };
 		239B025C27D0415C0055AEBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B025B27D0415C0055AEBA /* ContentView.swift */; };
 		239B025E27D0415D0055AEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239B025D27D0415D0055AEBA /* Assets.xcassets */; };
@@ -31,10 +34,13 @@
 		232F076727F50A2C00BB26A6 /* RentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentView.swift; sourceTree = "<group>"; };
 		232F076927F50EE600BB26A6 /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
 		2355F2EF27FE48F40013DC26 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		237D562B28ECF733000C4CF7 /* SettingsProfileViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewForm.swift; sourceTree = "<group>"; };
 		23825AC52810879B00AC73B6 /* BookingViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewForm.swift; sourceTree = "<group>"; };
 		23825AC72810A3DF00AC73B6 /* OtherNeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNeed.swift; sourceTree = "<group>"; };
 		23825ACD2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNeedsListItemSelectedView.swift; sourceTree = "<group>"; };
 		23825AD12810CA0000AC73B6 /* RentViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewForm.swift; sourceTree = "<group>"; };
+		2389E5FB28F60ED500EF2669 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2389E5FD28F61B3000EF2669 /* SettingsPasswordViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPasswordViewForm.swift; sourceTree = "<group>"; };
 		239B025627D0415C0055AEBA /* couchsurfing_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = couchsurfing_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239B025927D0415C0055AEBA /* couchsurfing_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = couchsurfing_appApp.swift; sourceTree = "<group>"; };
 		239B025B27D0415C0055AEBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 				239B025B27D0415C0055AEBA /* ContentView.swift */,
 				232F076927F50EE600BB26A6 /* BookingView.swift */,
 				23825AC52810879B00AC73B6 /* BookingViewForm.swift */,
+				237D562B28ECF733000C4CF7 /* SettingsProfileViewForm.swift */,
+				2389E5FD28F61B3000EF2669 /* SettingsPasswordViewForm.swift */,
+				2389E5FB28F60ED500EF2669 /* ImagePicker.swift */,
 				23E2723F282084F900CD9A94 /* ButtonDesignModifier.swift */,
 				23825AC72810A3DF00AC73B6 /* OtherNeed.swift */,
 				23825ACD2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift */,
@@ -182,9 +191,12 @@
 				23825AC82810A3DF00AC73B6 /* OtherNeed.swift in Sources */,
 				23C5F8A12819CA86005D928F /* CouchSurfongCustomColor.swift in Sources */,
 				23C5F8A7281A0520005D928F /* UserLeaderboardInfo.swift in Sources */,
+				2389E5FC28F60ED500EF2669 /* ImagePicker.swift in Sources */,
 				23E27240282084F900CD9A94 /* ButtonDesignModifier.swift in Sources */,
 				23825AD22810CA0000AC73B6 /* RentViewForm.swift in Sources */,
+				2389E5FE28F61B3000EF2669 /* SettingsPasswordViewForm.swift in Sources */,
 				23C5F8A52819F3E8005D928F /* UserLeaderboardView.swift in Sources */,
+				237D562C28ECF733000C4CF7 /* SettingsProfileViewForm.swift in Sources */,
 				239B025C27D0415C0055AEBA /* ContentView.swift in Sources */,
 				23C5F8A32819EF53005D928F /* LeaderboardView.swift in Sources */,
 				23D678A727E2BA5F001AE964 /* MultipleSelectionRow.swift in Sources */,
