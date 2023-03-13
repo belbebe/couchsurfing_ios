@@ -42,8 +42,9 @@ struct SettingsPasswordViewForm: View {
                     .focused($textfield_is_focused)
                 
                 // new password confirmation
-                SecureField(new_pw_confirm_placeholder, text: $new_pw_confirm_state, prompt: Text(new_pw_placeholder))
+                SecureField(new_pw_confirm_placeholder, text: $new_pw_confirm_state, prompt: Text(new_pw_confirm_placeholder))
                     .focused($textfield_is_focused)
+                // copy-paste disabled??? if not -> disable it!
             }
             
             // modify button

@@ -66,6 +66,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2379926829BE9DF200B98C8C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				23C5F8A42819F3E8005D928F /* UserLeaderboardView.swift */,
+				23C5F8A22819EF53005D928F /* LeaderboardView.swift */,
+				23E2724128209D8E00CD9A94 /* AccommListItemView.swift */,
+				2355F2EF27FE48F40013DC26 /* ProfileView.swift */,
+				23825AD12810CA0000AC73B6 /* RentViewForm.swift */,
+				23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */,
+				23825ACD2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift */,
+				2389E5FD28F61B3000EF2669 /* SettingsPasswordViewForm.swift */,
+				237D562B28ECF733000C4CF7 /* SettingsProfileViewForm.swift */,
+				23825AC52810879B00AC73B6 /* BookingViewForm.swift */,
+				239B025B27D0415C0055AEBA /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2379926929BE9F4F00B98C8C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				23C5F8A02819CA86005D928F /* CouchSurfongCustomColor.swift */,
+				2379926A29BE9F6500B98C8C /* Modifiers */,
+				2389E5FB28F60ED500EF2669 /* ImagePicker.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2379926A29BE9F6500B98C8C /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				23E2723F282084F900CD9A94 /* ButtonDesignModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		2379926B29BEA08700B98C8C /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */,
+				23825AC72810A3DF00AC73B6 /* OtherNeed.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
 		239B024D27D0415C0055AEBA = {
 			isa = PBXGroup;
 			children = (
@@ -85,27 +130,14 @@
 		239B025827D0415C0055AEBA /* couchsurfing_app */ = {
 			isa = PBXGroup;
 			children = (
+				2379926929BE9F4F00B98C8C /* Utils */,
+				2379926829BE9DF200B98C8C /* Views */,
 				239B025927D0415C0055AEBA /* couchsurfing_appApp.swift */,
-				239B025B27D0415C0055AEBA /* ContentView.swift */,
 				232F076927F50EE600BB26A6 /* BookingView.swift */,
-				23825AC52810879B00AC73B6 /* BookingViewForm.swift */,
-				237D562B28ECF733000C4CF7 /* SettingsProfileViewForm.swift */,
-				2389E5FD28F61B3000EF2669 /* SettingsPasswordViewForm.swift */,
-				2389E5FB28F60ED500EF2669 /* ImagePicker.swift */,
-				23E2723F282084F900CD9A94 /* ButtonDesignModifier.swift */,
-				23825AC72810A3DF00AC73B6 /* OtherNeed.swift */,
-				23825ACD2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift */,
+				2379926B29BEA08700B98C8C /* Types */,
 				239B025D27D0415D0055AEBA /* Assets.xcassets */,
-				23C5F8A02819CA86005D928F /* CouchSurfongCustomColor.swift */,
 				239B025F27D0415D0055AEBA /* Preview Content */,
-				23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */,
 				232F076727F50A2C00BB26A6 /* RentView.swift */,
-				23825AD12810CA0000AC73B6 /* RentViewForm.swift */,
-				2355F2EF27FE48F40013DC26 /* ProfileView.swift */,
-				23E2724128209D8E00CD9A94 /* AccommListItemView.swift */,
-				23C5F8A22819EF53005D928F /* LeaderboardView.swift */,
-				23C5F8A42819F3E8005D928F /* UserLeaderboardView.swift */,
-				23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */,
 			);
 			path = couchsurfing_app;
 			sourceTree = "<group>";
