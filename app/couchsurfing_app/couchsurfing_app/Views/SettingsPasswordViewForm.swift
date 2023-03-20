@@ -16,15 +16,17 @@ struct SettingsPasswordViewForm: View {
     private let modify_text = "Módosítás"
     private let new_pw_not_match_text = "A megadott új jelszó és a megerősítés nem egyezik!"
     private let new_pw_empty_text = "Nem adott meg új jelszót!"
+    private let old_pw_empty_text = "Nem adta meg a régi jelszót!"
     private let old_pw_not_matching_text = "Helytelenül adta meg régi jelszavát!"
     
-    private let old_pw_example = "example"
+    private let old_pw_example = "example" // "jelenlegi jelszó" a működés teszteléséhez
     
     @State var old_pw_state = ""
     @State var new_pw_state = ""
     @State var new_pw_confirm_state = ""
     @State var new_pw_not_matching_dialog_state = false
     @State var new_pw_empty_dialog_state = false
+    @State var old_pw_empty_dialog_state = false
     @State var old_pw_not_matching_dialog_state = false
     @FocusState var textfield_is_focused: Bool
     
@@ -54,9 +56,11 @@ struct SettingsPasswordViewForm: View {
                     
                     new_pw_empty_dialog_state = new_pw_state == ""
                     
+                    old_pw_empty_dialog_state = old_pw_state == ""
+                    
                     old_pw_not_matching_dialog_state = old_pw_state != old_pw_example
                     
-                    if(!new_pw_not_matching_dialog_state && !new_pw_empty_dialog_state && !old_pw_not_matching_dialog_state) {
+                    if(!new_pw_not_matching_dialog_state && !new_pw_empty_dialog_state && !old_pw_not_matching_dialog_state && !old_pw_empty_dialog_state) {
                         // módosítás funkció megvalósítás
                     }
                 }) {
@@ -69,6 +73,9 @@ struct SettingsPasswordViewForm: View {
                     Button("OK", role: .cancel) {}
                 }
                 .alert(new_pw_empty_text, isPresented: $new_pw_empty_dialog_state) {
+                    Button("OK", role: .cancel) {}
+                }
+                .alert(old_pw_empty_text, isPresented: $old_pw_empty_dialog_state) {
                     Button("OK", role: .cancel) {}
                 }
                 .alert(old_pw_not_matching_text, isPresented: $old_pw_not_matching_dialog_state) {

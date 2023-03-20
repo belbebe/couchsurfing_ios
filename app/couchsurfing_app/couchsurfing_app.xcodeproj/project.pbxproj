@@ -10,6 +10,7 @@
 		232F076827F50A2C00BB26A6 /* RentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F076727F50A2C00BB26A6 /* RentView.swift */; };
 		232F076A27F50EE600BB26A6 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F076927F50EE600BB26A6 /* BookingView.swift */; };
 		2355F2F027FE48F40013DC26 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355F2EF27FE48F40013DC26 /* ProfileView.swift */; };
+		2379926E29C7BF4A00B98C8C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2379926D29C7BF4A00B98C8C /* LoginView.swift */; };
 		237D562C28ECF733000C4CF7 /* SettingsProfileViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237D562B28ECF733000C4CF7 /* SettingsProfileViewForm.swift */; };
 		23825AC62810879B00AC73B6 /* BookingViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23825AC52810879B00AC73B6 /* BookingViewForm.swift */; };
 		23825AC82810A3DF00AC73B6 /* OtherNeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23825AC72810A3DF00AC73B6 /* OtherNeed.swift */; };
@@ -34,6 +35,7 @@
 		232F076727F50A2C00BB26A6 /* RentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentView.swift; sourceTree = "<group>"; };
 		232F076927F50EE600BB26A6 /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
 		2355F2EF27FE48F40013DC26 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2379926D29C7BF4A00B98C8C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		237D562B28ECF733000C4CF7 /* SettingsProfileViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewForm.swift; sourceTree = "<group>"; };
 		23825AC52810879B00AC73B6 /* BookingViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewForm.swift; sourceTree = "<group>"; };
 		23825AC72810A3DF00AC73B6 /* OtherNeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNeed.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				237D562B28ECF733000C4CF7 /* SettingsProfileViewForm.swift */,
 				23825AC52810879B00AC73B6 /* BookingViewForm.swift */,
 				239B025B27D0415C0055AEBA /* ContentView.swift */,
+				2379926D29C7BF4A00B98C8C /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,6 +114,15 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		2379926C29C7B58500B98C8C /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				232F076927F50EE600BB26A6 /* BookingView.swift */,
+				232F076727F50A2C00BB26A6 /* RentView.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
 		239B024D27D0415C0055AEBA = {
 			isa = PBXGroup;
 			children = (
@@ -133,11 +145,10 @@
 				2379926929BE9F4F00B98C8C /* Utils */,
 				2379926829BE9DF200B98C8C /* Views */,
 				239B025927D0415C0055AEBA /* couchsurfing_appApp.swift */,
-				232F076927F50EE600BB26A6 /* BookingView.swift */,
 				2379926B29BEA08700B98C8C /* Types */,
 				239B025D27D0415D0055AEBA /* Assets.xcassets */,
 				239B025F27D0415D0055AEBA /* Preview Content */,
-				232F076727F50A2C00BB26A6 /* RentView.swift */,
+				2379926C29C7B58500B98C8C /* Deprecated */,
 			);
 			path = couchsurfing_app;
 			sourceTree = "<group>";
@@ -238,6 +249,7 @@
 				239B025A27D0415C0055AEBA /* couchsurfing_appApp.swift in Sources */,
 				232F076827F50A2C00BB26A6 /* RentView.swift in Sources */,
 				2355F2F027FE48F40013DC26 /* ProfileView.swift in Sources */,
+				2379926E29C7BF4A00B98C8C /* LoginView.swift in Sources */,
 				232F076A27F50EE600BB26A6 /* BookingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
