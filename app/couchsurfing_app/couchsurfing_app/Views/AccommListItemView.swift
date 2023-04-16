@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct AccommListItemView: View {
+    let accommodation: Accommodation
+    let other_needs_text: String = "Egyéb: "
+    /*
     let image: String
     let type: String
     let address: String
     let rating: String
     let other_needs: [OtherNeed]
-    let other_needs_text: String = "Egyéb: "
     let price: String
     
     init(image: String, type: String, address: String, rating: Double, others: [OtherNeed], price: Int) {
@@ -24,6 +26,7 @@ struct AccommListItemView: View {
         self.other_needs = others
         self.price = "Ár: \(price) HUF/éj"
     }
+     */
     
     private func process_other_needs(other: [OtherNeed]) -> String {
         var ret = ""
@@ -34,38 +37,54 @@ struct AccommListItemView: View {
         return ret
     }
     
+    private func process_accom_type(type: AccomTypeEnum) -> String {
+        switch type {
+        case .apartment:
+            return "Apartman"
+        case .room:
+            return "Szoba"
+        case .couch:
+            return "Kanapé"
+        }
+    }
+    
+    private func process_price_per_night(price: Float) -> String {
+        return "\(price) HUF"
+    }
+    
     var body: some View {
-        HStack(alignment: .top, spacing: 15) {
-            Image(systemName: image)
+        HStack(alignment: .top, spacing: 20) {
+            Image(systemName: accommodation.image)
                 .resizable()
                 .scaledToFit()
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(type)
+                Text(process_accom_type(type: accommodation.type))
                     .font(Font.body.weight(.bold))
                 
-                Text(address)
+                Text(accommodation.address)
                     .font(.body)
-                
-                Text(rating)
+                /*
+                Text(accommodation.rating)
                     .font(.body)
+                */
                 
-                Text(other_needs_text + process_other_needs(other: other_needs))
+                Text(other_needs_text + process_other_needs(other: accommodation.other_needs))
                     .font(.body)
             }
             
-            Text(price)
+            Text(process_price_per_night(price: accommodation.price_per_night))
                 .font(Font.body.weight(.bold))
         }
-        .padding(10)
+        .padding(5)
     }
 }
 
 struct AccommListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AccommListItemView(image: "house.circle.fill", type: "Apartman", address: "Fő utca 1., Budapest", rating: 4.7, others: [
+        AccommListItemView(accommodation: Accommodation(id: 1, user_id: 1, address: "Fő utca 1., Budapest", geo_long: 1.1, geo_lat: 1.1, type: .apartment, max_geust_num: 2, other_needs: [
             OtherNeed(name: "Nem-dohányzó"),
             OtherNeed(name: "Állatbarát")
-        ], price: 10000)
+        ], additional_info: "Info placeholder", price_per_night: 10000, image: "house.circle.fill"))
     }
 }

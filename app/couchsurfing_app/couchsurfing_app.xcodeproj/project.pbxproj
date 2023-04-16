@@ -32,6 +32,9 @@
 		23C5F8A52819F3E8005D928F /* UserLeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C5F8A42819F3E8005D928F /* UserLeaderboardView.swift */; };
 		23C5F8A7281A0520005D928F /* UserLeaderboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */; };
 		23D678A727E2BA5F001AE964 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */; };
+		23DD3A9629ECA57300D2D437 /* AccommListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3A9529ECA57300D2D437 /* AccommListView.swift */; };
+		23DD3A9A29ECB36B00D2D437 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3A9929ECB36B00D2D437 /* Accommodation.swift */; };
+		23DD3A9C29ECB4B100D2D437 /* AccomTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3A9B29ECB4B100D2D437 /* AccomTypeEnum.swift */; };
 		23E27240282084F900CD9A94 /* ButtonDesignModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2723F282084F900CD9A94 /* ButtonDesignModifier.swift */; };
 		23E2724228209D8E00CD9A94 /* AccommListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2724128209D8E00CD9A94 /* AccommListItemView.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +66,9 @@
 		23C5F8A42819F3E8005D928F /* UserLeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLeaderboardView.swift; sourceTree = "<group>"; };
 		23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLeaderboardInfo.swift; sourceTree = "<group>"; };
 		23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
+		23DD3A9529ECA57300D2D437 /* AccommListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommListView.swift; sourceTree = "<group>"; };
+		23DD3A9929ECB36B00D2D437 /* Accommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
+		23DD3A9B29ECB4B100D2D437 /* AccomTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomTypeEnum.swift; sourceTree = "<group>"; };
 		23E2723F282084F900CD9A94 /* ButtonDesignModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDesignModifier.swift; sourceTree = "<group>"; };
 		23E2724128209D8E00CD9A94 /* AccommListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +90,7 @@
 				23C5F8A42819F3E8005D928F /* UserLeaderboardView.swift */,
 				23C5F8A22819EF53005D928F /* LeaderboardView.swift */,
 				23E2724128209D8E00CD9A94 /* AccommListItemView.swift */,
+				23DD3A9529ECA57300D2D437 /* AccommListView.swift */,
 				2355F2EF27FE48F40013DC26 /* ProfileView.swift */,
 				23825AD12810CA0000AC73B6 /* RentViewForm.swift */,
 				23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */,
@@ -125,6 +132,8 @@
 			children = (
 				23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */,
 				23825AC72810A3DF00AC73B6 /* OtherNeed.swift */,
+				23DD3A9929ECB36B00D2D437 /* Accommodation.swift */,
+				23DD3A9B29ECB4B100D2D437 /* AccomTypeEnum.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -256,7 +265,9 @@
 				2379927629DA3FC000B98C8C /* StartupView.swift in Sources */,
 				23C5F8A52819F3E8005D928F /* UserLeaderboardView.swift in Sources */,
 				237D562C28ECF733000C4CF7 /* SettingsProfileViewForm.swift in Sources */,
+				23DD3A9629ECA57300D2D437 /* AccommListView.swift in Sources */,
 				239B025C27D0415C0055AEBA /* ContentView.swift in Sources */,
+				23DD3A9C29ECB4B100D2D437 /* AccomTypeEnum.swift in Sources */,
 				23C5F8A32819EF53005D928F /* LeaderboardView.swift in Sources */,
 				23D678A727E2BA5F001AE964 /* MultipleSelectionRow.swift in Sources */,
 				23E2724228209D8E00CD9A94 /* AccommListItemView.swift in Sources */,
@@ -268,6 +279,7 @@
 				239B025A27D0415C0055AEBA /* couchsurfing_appApp.swift in Sources */,
 				232F076827F50A2C00BB26A6 /* RentView.swift in Sources */,
 				2379927029D1082200B98C8C /* LoginFormView.swift in Sources */,
+				23DD3A9A29ECB36B00D2D437 /* Accommodation.swift in Sources */,
 				2355F2F027FE48F40013DC26 /* ProfileView.swift in Sources */,
 				2379926E29C7BF4A00B98C8C /* LoginView.swift in Sources */,
 				232F076A27F50EE600BB26A6 /* BookingView.swift in Sources */,
