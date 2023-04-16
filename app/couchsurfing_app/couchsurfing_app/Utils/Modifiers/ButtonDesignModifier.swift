@@ -21,9 +21,9 @@ struct ButtonDesignModifier: ViewModifier {
             .padding(15)
             .background(button_color)
             .foregroundColor(.black)
-            .cornerRadius(15)
+            .cornerRadius(14)
             .padding(3)
             .background(background_color)
-            .cornerRadius(15)
+            .cornerRadius(17)
     }
 }

@@ -1,13 +1,13 @@
 //
-//  LoginView.swift
+//  RegistrationView.swift
 //  couchsurfing_app
 //
-//  Created by Belcsik Bence on 2023. 03. 19..
+//  Created by Belcsik Bence on 2023. 04. 03..
 //
 
 import SwiftUI
 
-struct LoginView: View {
+struct RegistrationView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -19,15 +19,15 @@ struct LoginView: View {
                     .frame(alignment: .top)
                 
                 if #available(iOS 16.0, *) {
-                    LoginFormView()
+                    RegistrationFormView()
                         .scrollContentBackground(.hidden)
                         .scrollDisabled(true)
                 } else if(colorScheme == .dark) {
-                    LoginFormView()
+                    RegistrationFormView()
                         .background(Color.black)
                         .modifier(DisableScrolling(disabled: true))
                 } else {
-                    LoginFormView()
+                    RegistrationFormView()
                         .background(Color.white)
                         .modifier(DisableScrolling(disabled: true))
                 }
@@ -36,8 +36,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        RegistrationView()
     }
 }
