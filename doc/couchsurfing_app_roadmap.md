@@ -20,7 +20,7 @@
 - Képernyő:\
 <img src="markdown_images/views/LoginView.png" alt="bejelentkezési képernyő" height="500"/>
 
-- Backend érintettség:\
+- Backend érintettség:
     - <u>Végpont:</u> **POST /api/auth/login**
     - <u>Kérés:</u>\
     Body-ban:
@@ -50,7 +50,7 @@
 - Képernyő:\
 <img src="markdown_images/views/RegistrationView.png" alt="regisztrációs képernyő" height=500/>
 
-- Backend érintettség:\
+- Backend érintettség:
     - <u>Végpont:</u> **POST /api/auth/register**
     - <u>Kérés:</u>\
     Body-ban:
@@ -64,7 +64,7 @@
         password: string
     }
     ```
-    - <u>Válasz:</u>\
+    - <u>Válasz:</u>
         - Sikeres: **200-as státuszkód**, body-ban:
         ```javascript
         {
@@ -120,10 +120,10 @@
         - Sikeres: **200-as státuszkód**, body-ban:
         ```javascript
         {
-            rooms: RoomResponse[]
+            rooms: Room[]
         }
 
-        RoomResponse = {
+        Room = {
             id: int,
             address: string,
             geoLength: float,
@@ -138,12 +138,12 @@
             parking: boolean,
             bicycleStorage: boolean,
             additionalInfo: string,
-            bookings: BookingResponse[]
+            bookings: Booking[]
         }
 
         RoomType = 'APARTMENT' | 'ROOM' | 'COUCH'
 
-        BookingResponse = {
+        Booking = {
             int: id,
             startDate: date,
             endDate: date,
@@ -237,6 +237,173 @@
 
 - Képernyő: *TBD*
 
+## Leaderboardok
+
+### Leaderboard - foglalók
+
+- Képernyőterv:\
+<img src="markdown_images/design/leaderboard_tenants_design.png" alt="a foglalók ranglistájához tartozó képernyőnézet design" height=500/>
+
+- Képernyő:\
+<img src="markdown_images/views/leaderboard_view_tenants.png" alt="a foglalók ranglistájához tartozó nézet" height=500/>
+
+- Backend érintettség:\
+Két lehetséges út van:
+
+    1. Tabra navigáláskor a kliens kérést indít a megfelelő végpontra és minden leaderbord adatot elküld a backend a kliensnek. A slider változtatásával csak a lista sorrendje változik meg annak megfelelően, hogy melyik állapot (bérlő/kiadó) lista van megjelenítve. -> Kliens oldalon történik a rendezés a rendezés módja szerint 
+    (itt az elején elkülkdésre kerül a tenantScore és ownerScore is). => Itt minden adat elküldésre kerül (esetlegesen olyan is, amire adott esetben nem lenne szükség), rendezési logika a kliensen van implementálva.
+
+    2. Slider változtatással 1-1 kérés kerül elküldésre a backend felé, a rendezés alapját képző csoportosítás query parameterben kerül továbbításra. Ekkor a backend végzi a rendezést, és a megfelelő nézet szerint rendezett adatokat küldi el listában a kliensnek. Ebben az esetben a kliens csak megjeleníti a listákat. => Itt adott esetben több kérés megy a backend irányába, illetve bizonyos adatok kétszer kerülnek elküldésre mindkét lista esetében, így kétfajta állapotban is jelen van ugyanaz az adat. Rendezési logika backend oldalon van implementálva.
+
+    **Az 1. eset szerint történik a fejlesztés.**
+
+    - <u>Végpont:</u> **GET /api/leaderboard**
+    - <u>Kérés:</u>\
+        Body: üres
+    - <u>Válasz:</u>
+        - Sikeres: **200-as státuszkód**, body-ban:
+        ```javascript
+        [
+            {
+                id: int,
+                userId: int,
+                fullName: string,
+                username: string,
+                tenantScore: int
+                ownerScore: int,
+                profilePicture: Image
+            }
+        ]
+        ```
+    - Sikertelen: **404-es hibakód**
+
+### Leaderboard - kiadók
+
+- Képernyőterv:\
+<img src="markdown_images/design/leaderboard_owners_design.png" alt="a kiadók ranglistájához tartozó képernyőnézet design" height=500/>
+
+- Képernyő:\
+<img src="markdown_images/views/leaderboard_view_owners.png" alt="a kiadók ranglistájához tartozó nézet" height=500/>
+
+- Backend érintettség: kifejtve az előző pontban
+
+## Profil
+
+### Saját profil
+
+- Képernyőterv:\
+<img src="markdown_images/design/own_profile_design.png" alt="saját profil nézethez tartozó képernyő design" height=500/>
+
+- Képernyő:\
+<img src="markdown_images/views/profile_view.png" alt="saját profil nézethez tartozó képernyő" height=500/>
+
+- Backend érintettség:\
+Bejelentkezéskor/regisztrációkor a kliens megkapja a backendtől a bejelentkezett felhasználó felhasználó azonosítóját, ezt felhasználva a path parameterben indítja el a kérést:
+    - <u>Végpont:</u> **GET /api/users/id=ownUserId**
+    - <u>Kérés:</u>\
+    Body üres
+    - <u>Válasz:</u>
+        - Sikeres: **200-as státuszkód**, body-ban:
+        ```javascript
+        {
+            id: int,
+            fullName: string,
+            username: string,
+            birthDate: date,
+            email: string,
+            phone: string,
+            rooms: Rooms[],
+            bookings: Booking[]
+        }
+        ```
+        - Sikertelen:
+            - Nem megfelelő felhasználói azonosító használata path paraméterként: **404-es hibakóddal tér vissza**, hogy az esetleges jogosulatlanul intézett kérésre adott válaszból ne lehessen rájönni, hogy ez a probléma
+            - Sikertelen kérés esetén: **404-es hibakóddal tér vissza**
+
+### Felhasználói adatok módosítása
+
+- Képernyőterv:\
+<img src="markdown_images/design/profile_settings_design.png" alt="felhasználói adatok módosításához tartozó képernyő design" height=500/>
+
+- Képernyő:\
+<img src="markdown_images/views/SettingsProfileViewForm_app.png" alt="felhasználói adatok módosításához tartozó képernyő" height=500/>
+
+- Backend érintettség:
+    - <u>Végpont:</u> **POST /api/users/id=ownUserId**
+    - <u>Kérés:</u>\
+    Body-ban:
+    ```javascript
+    {
+        fullName: string,
+        username: string,
+        email: string,
+        phone: string
+    }
+    ```
+    - <u>Válasz:</u>
+        - Sikeres: **201-es státuszkód**, üres body -> dialógus ablak 
+        - Sikertelen:
+            - Nem megfelelő felhasználói azonosító használata path paraméterként: **404-es hibakóddal tér vissza**, hogy az esetleges jogosulatlanul intézett kérésre adott válaszból ne lehessen rájönni, hogy ez a probléma
+            - Sikertelen kérés esetén: **404-es hibakóddal tér vissza**
+
+### Jelszó módosítás
+
+- Képernyő:\
+<img src="markdown_images/views/SettingsPasswordViewForm.png" alt="jelszó módosításhoz tartozó képernyő" height=500/>
+
+- Backend érintettség:
+    - <u>Végpont:</u> **PUT /api/users/password/id=ownUserId**
+    - <u>Kérés:</u>\
+    Body-ban:
+    ```javascript
+    {
+        oldPassword: string,
+        newPassword: string
+    }
+    ```
+    - <u>Válasz:</u>
+        - Sikeres: **201-es státuszkód**, üres body -> dialógusablak
+        - Sikertelen:
+            - Rossz régi jelszó megadása: **400-as hibakód** -> dialógusablak
+            - Sikertelen kérés vagy hibás felhasználói azonosító megadása: **404-es hibakód**
+
+### Másik felhasználó profilja
+
+- Képernyőterv:\
+<img src="markdown_images/design/random_profile.png" alt="másik felhasználó profiljához tartozó nézet design" height=500/>
+
+- Képernyő: *TBD*
+
+- Backend érintettség:
+- <u>Végpont:</u> **GET /api/users/id=userId**
+    - <u>Kérés:</u>\
+    Body üres
+    - <u>Válasz:</u>
+        - Sikeres: **200-as státuszkód**, body-ban:
+        ```javascript
+        {
+            id: int,
+            fullName: string,
+            username: string,
+            birthDate: date,
+            email: string,
+            phone: string,
+            rooms: Rooms[],
+            bookings: Booking[]
+        }
+        ```
+        - Sikertelen:
+            - Sikertelen kérés esetén: **404-es hibakóddal tér vissza**
+
+## Chat
+
+- Képernyőterv:\
+<img src="markdown_images/design/chat_design.png" alt="chat képernyő design" height=500/>
+
+- Képernyő: *TBD*
+
+- Backend érintettség: *TBD*
+
 ## Backend válasz kezelése - pending és error állapotok
 
 ### Általános loading képernyő
@@ -249,7 +416,7 @@
 
 ### Általános error képernyő
 
-- Hibakódot tartalmazó backend válaszok esetén megjelenítendő általános hiba állapot kezelésére szolgáló képernyő
+- Hibakódot tartalmazó backend válaszok esetén megjelenítendő általános hiba állapot kezelésére szolgáló képernyő (lehet egyszerű dialógus/alert is)
 
 - Képernyőterv: *TBD*
 
