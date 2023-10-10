@@ -400,7 +400,8 @@ Bejelentkezéskor/regisztrációkor a kliens megkapja a backendtől a bejelentke
 - Képernyőterv:\
 <img src="markdown_images/design/chat_design.png" alt="chat képernyő design" height=500/>
 
-- Képernyő: *TBD*
+- Képernyő:\
+<img src="markdown_images/views/ChatConversationView.png" alt="chat képernyő" height=500>
 
 - Backend érintettség: *TBD*
 
