@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23068B632ADF46F000FBE05F /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23068B622ADF46F000FBE05F /* CarouselView.swift */; };
 		232F076827F50A2C00BB26A6 /* RentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F076727F50A2C00BB26A6 /* RentView.swift */; };
 		232F076A27F50EE600BB26A6 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F076927F50EE600BB26A6 /* BookingView.swift */; };
 		2355F2F027FE48F40013DC26 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355F2EF27FE48F40013DC26 /* ProfileView.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23068B622ADF46F000FBE05F /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		232F076727F50A2C00BB26A6 /* RentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentView.swift; sourceTree = "<group>"; };
 		232F076927F50EE600BB26A6 /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
 		2355F2EF27FE48F40013DC26 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				2379927929DA49E000B98C8C /* RegistrationFormView.swift */,
 				2379926F29D1082200B98C8C /* LoginFormView.swift */,
 				23F0FB932AD6058500946CFF /* CustomTextField.swift */,
+				23068B622ADF46F000FBE05F /* CarouselView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				23E2724228209D8E00CD9A94 /* AccommListItemView.swift in Sources */,
 				2379927229D10BD700B98C8C /* DisableScrollingModifier.swift in Sources */,
 				2379927829DA494400B98C8C /* RegistrationView.swift in Sources */,
+				23068B632ADF46F000FBE05F /* CarouselView.swift in Sources */,
 				23825AC62810879B00AC73B6 /* BookingViewForm.swift in Sources */,
 				23F0FB902AD5F27500946CFF /* ChatConversationView.swift in Sources */,
 				23825ACE2810B7C000AC73B6 /* OtherNeedsListItemSelectedView.swift in Sources */,

@@ -253,9 +253,9 @@ Két lehetséges út van:
     1. Tabra navigáláskor a kliens kérést indít a megfelelő végpontra és minden leaderbord adatot elküld a backend a kliensnek. A slider változtatásával csak a lista sorrendje változik meg annak megfelelően, hogy melyik állapot (bérlő/kiadó) lista van megjelenítve. -> Kliens oldalon történik a rendezés a rendezés módja szerint 
     (itt az elején elkülkdésre kerül a tenantScore és ownerScore is). => Itt minden adat elküldésre kerül (esetlegesen olyan is, amire adott esetben nem lenne szükség), rendezési logika a kliensen van implementálva.
 
-    2. Slider változtatással 1-1 kérés kerül elküldésre a backend felé, a rendezés alapját képző csoportosítás query parameterben kerül továbbításra. Ekkor a backend végzi a rendezést, és a megfelelő nézet szerint rendezett adatokat küldi el listában a kliensnek. Ebben az esetben a kliens csak megjeleníti a listákat. => Itt adott esetben több kérés megy a backend irányába, illetve bizonyos adatok kétszer kerülnek elküldésre mindkét lista esetében, így kétfajta állapotban is jelen van ugyanaz az adat. Rendezési logika backend oldalon van implementálva.
+    2. Slider változtatással 1-1 kérés kerül elküldésre a backend felé, a rendezés alapját képző csoportosítás <b>query parameterben</b> kerül továbbításra. Ekkor a backend végzi a rendezést, és a megfelelő nézet szerint rendezett adatokat küldi el listában a kliensnek. Ebben az esetben a kliens csak megjeleníti a listákat. => Itt adott esetben több kérés megy a backend irányába, illetve bizonyos adatok kétszer kerülnek elküldésre mindkét lista esetében, így kétfajta állapotban is jelen van ugyanaz az adat. Rendezési logika backend oldalon van implementálva.
 
-    **Az 1. eset szerint történik a fejlesztés.**
+    **A 2. eset szerint történik a fejlesztés.**
 
     - <u>Végpont:</u> **GET /api/leaderboard**
     - <u>Kérés:</u>\
@@ -423,3 +423,13 @@ Bejelentkezéskor/regisztrációkor a kliens megkapja a backendtől a bejelentke
 
 - Képernyő: *TBD*
 
+## TODOs
+
+### Kliens
+
+* Architektúra létrehozása a View objektumok mögé – üzleti logika, store és hálózati kérések kezelése
+* Általános loading és error képernyők
+
+### Backend
+
+* Chat adatbázis tábla létrehozása, Spring objektumok (Request, Response, Controller, stb.) létrehozása a funkcióhoz
