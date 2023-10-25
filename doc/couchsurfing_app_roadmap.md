@@ -157,7 +157,7 @@
         ```
         - Sikertelen: *TBD*
 
-        - <u><b>Módosítás:</b></u> a RoomResponse-ba fel kell venni, hogy lehetséges-e házi munkával fizetni, és ha igen, akkor mennyi lesz az új ár.
+        - <u><b>Módosítás:</b></u> a RoomResponse-ba fel kell venni, hogy lehetséges-e házi munkával fizetni, és ha igen, akkor mennyi lesz az új ár, továbbá az elfogadott fizetési módokat.
     
 ### Szállás lista képernyő
 - Képernyőterv:\
@@ -171,11 +171,12 @@
 
 ### Szállás képernyő
 
-- Szállás adaitnak részletes megjelenítése + form elemek a foglalás leadásához.
+- Szállás adaitnak részletes megjelenítése + form elemek a foglalás leadásához. -> <b>form elemek új oldalon</b> a gombra nyomás után megjelenítve
 
 - Képernyőterv: *TBD*
 
-- Képernyő: *TBD*
+- Képernyő:\
+<img src="markdown_images/views/accommodation_details_view.png" alt="szoba részletek oldal képernyő" height=500>
 
 - Backend érintettség:
     - **Kliens oldalon eltárolt state kerül felhasználásra a navigáció során**, nincs külön újabb végpont hívás a szállás adataiért. Abban az esetben, ha ezt nem lehet megvalósítani, kerül létrehozásra egy végpont, amely az adott szállás adait adja vissza.
