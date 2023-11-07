@@ -59,7 +59,7 @@ struct CarouselView<Content: View, Item, ID>: View where Item: RandomAccessColle
                     .onEnded{onEnd(value: $0, cardWidth: cardWidth)}
             )
         }
-        .padding(.bottom, 40)
+        .padding(.bottom, 20)
         .onAppear{
             let extraSpace = (cardPadding / 2) - spacing
             offset = extraSpace
