@@ -116,6 +116,8 @@
     Currency = 'HUF' | 'EUR' | 'USD'
     ```
 
+    - <u><b>Módosítás:</b></u> a kérésben a paymentMethod egy tömböt várjon, ha 0 elemű akkor nem kell paymentMethod alapján listázni, ha van benne legalább egy elem, akkor a szerint a fizetési mód szerint lehessen rendezni.   
+
     - <u>Válasz:</u>
         - Sikeres: **200-as státuszkód**, body-ban:
         ```javascript

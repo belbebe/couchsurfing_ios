@@ -2,7 +2,7 @@
 //  OtherNeed.swift
 //  couchsurfing_app
 //
-//  Created by Belcsik Bence on 2022. 04. 20..
+//  Created by Belcsik Bence on 08/11/2023.
 //
 
 import Foundation
@@ -10,5 +10,4 @@ import Foundation
 struct OtherNeed: Identifiable, Hashable {
     var name: String
     var id = UUID()
-    var is_selected = false
 }

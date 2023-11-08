@@ -29,16 +29,16 @@ struct RentViewForm: View {
     
     private var adv_button_text: String = "Meghirdet"
     
-    @State private var payment_methods = [PaymentMethod(value: "Készpénz"),
-                                   PaymentMethod(value: "Bankkártya"),
-                                   PaymentMethod(value: "Ellenszolgáltatás")]
+    @State private var payment_methods = [ListItem(name: "Készpénz"), 
+                                          ListItem(name: "Bankkártya"),
+                                          ListItem(name: "Ellenszolgáltatás")]
     
     @State private var other_needs = [
-        OtherNeed(name: "Nem-dohányzó"),
-        OtherNeed(name: "Állatbarát"),
-        OtherNeed(name: "Légkondíciónáló"),
-        OtherNeed(name: "Parkolóhely biztsoított"),
-        OtherNeed(name: "Bicikli tárolás biztosított")
+        ListItem(name: "Nem-dohányzó"),
+        ListItem(name: "Állatbarát"),
+        ListItem(name: "Légkondíciónáló"),
+        ListItem(name: "Parkolóhely biztsoított"),
+        ListItem(name: "Bicikli tárolás biztosított")
     ]
     
     @State private var rent_city: String = ""
@@ -81,18 +81,21 @@ struct RentViewForm: View {
                 // accepted payment methods
                 Section {
                     List {
-                        ForEach(0..<payment_methods.count) { index in
+                        ForEach(0..<payment_methods.count, id: \.self) { index in
                             Button(action: {
                                 payment_methods[index].is_selected = payment_methods[index].is_selected ? false : true
                             }) {
+                                /*
                                 HStack {
                                     if(payment_methods[index].is_selected) {
                                         Image(systemName: "checkmark")
                                             .foregroundColor(.orange)
                                     }
-                                    Text(payment_methods[index].value)
+                                    Text(payment_methods[index].name)
                                     Spacer()
                                 }
+                                 */
+                                ListItemSelectedView(list_item: payment_methods[index])
                             }
                             .foregroundColor(.black)
                         }
@@ -113,11 +116,11 @@ struct RentViewForm: View {
                 // properties/meeting other needs
                 Section {
                     List {
-                        ForEach(0..<other_needs.count) { index in
+                        ForEach(0..<other_needs.count, id: \.self) { index in
                             Button(action: {
                                 other_needs[index].is_selected = other_needs[index].is_selected ? false : true
                             }) {
-                                OtherNeedsListItemSelectedView(other_need: other_needs[index])
+                                ListItemSelectedView(list_item: other_needs[index])
                             }
                             .foregroundColor(.black)
                         }
@@ -149,12 +152,6 @@ struct RentViewForm: View {
             }
         }
     }
-}
-
-private struct PaymentMethod: Identifiable {
-    var id = UUID()
-    var value: String
-    var is_selected = false
 }
 
 struct RentViewForm_Previews: PreviewProvider {

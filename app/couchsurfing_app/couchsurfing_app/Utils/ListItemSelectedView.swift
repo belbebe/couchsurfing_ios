@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-struct OtherNeedsListItemSelectedView: View {
-    let other_need: OtherNeed
+struct ListItemSelectedView: View {
+    let list_item: ListItem
     
     var body: some View {
         HStack {
-            if(other_need.is_selected) {
+            if(list_item.is_selected) {
                 Image(systemName: "checkmark")
                     .foregroundColor(.orange)
             }
-            Text(other_need.name)
+            Text(list_item.name)
             Spacer()
         }
     }
 }
 
-struct OtherNeedListItemView_Previews: PreviewProvider {
+struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        OtherNeedsListItemSelectedView(other_need: OtherNeed(name: "pelda", is_selected: true))
+        ListItemSelectedView(list_item: ListItem(name: "pelda", is_selected: true))
     }
 }
 

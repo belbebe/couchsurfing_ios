@@ -16,6 +16,7 @@ struct AccommDetailsVeiw: View {
     let roomType: AccomTypeEnum = AccomTypeEnum.room
     let price: Float = 10000.0
     let currency: Currency = .HUF
+    let acceptedPaymentMethods: [PaymentMethod] = [.CASH, .CARD]
     let maxGuestNum: Int = 3
     let nonSmoking: Bool = true
     let petFriendly: Bool = true
@@ -37,6 +38,7 @@ struct AccommDetailsVeiw: View {
     let roomTypeCouchLabel: String = "Kanapé"
     let roomTypeRoomLabel: String = "Szoba"
     let pricePerNightLabel: String = "Ár éjszakánként:"
+    let acceptedPaymentMethodsLabel: String = "Elfogadott fizetési módok:"
     let maxGuestNumLabel: String = "Maximális vendégszám:"
     let smokingLabel: String = "Dohányzó:"
     let petFriendlyLabel: String = "Kisállatbarát:"
@@ -51,137 +53,158 @@ struct AccommDetailsVeiw: View {
     
     var body: some View {
 
-        VStack(spacing: 15) {
-            CarouselView(index: $currentIndex, cardPadding: 100, items: roomImages, id: \.id) {roomImage, cardSize in
-                Image(roomImage.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: cardSize.width, height: cardSize.height)
-                    .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-            }
-            .padding(.horizontal, -15)
-            .padding(.vertical)
-            
-            ScrollView {
-                VStack(alignment: .leading, spacing: 8) {
-                    HStack {
-                        Text(addressLabel)
-                            .bold()
-                        
-                        Text(address)
-                    }
-                    
-                    HStack {
-                        Text(geoLocationLabel)
-                            .bold()
-                        
-                        Button(action: {
-                            isTooltipAlertShown = !isTooltipAlertShown
-                        }) {
-                            Image(systemName: "info.circle")
-                                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                        }
-                        .padding(.leading, -2)
-                        .padding(.trailing, 5)
-                        .alert(tooltipText, isPresented: $isTooltipAlertShown) {
-                            Button("OK", role: .cancel) {}
-                        }
-                        
-                        Text(String(geoWidth) + ", " + String(geoLength))
-                            .onTapGesture {
-                                self.openLocationOnMap(width: self.geoWidth, length: self.geoLength)
-                            }
-                    }
-                    
-                    HStack {
-                        Text(roomTypeLabel)
-                            .bold()
-                        
-                        switch roomType {
-                        case .apartment:
-                            Text(roomTypeApartmentLabel)
-                            
-                        case .couch:
-                            Text(roomTypeCouchLabel)
-                            
-                        case .room:
-                            Text(roomTypeRoomLabel)
-                        }
-                    }
-                    
-                    HStack {
-                        Text(pricePerNightLabel)
-                            .bold()
-                        
-                        switch currency {
-                        case .HUF:
-                            Text(String(Int(price.rounded())) + " Ft")
-                        case .EUR:
-                            Text("€"+String(price))
-                        case .USD:
-                            Text("$"+String(price))
-                        }
-                    }
-                    
-                    HStack {
-                        Text(maxGuestNumLabel)
-                            .bold()
-                        
-                        Text(String(maxGuestNum) + " fő")
-                    }
-                    
-                    HStack {
-                        Text(smokingLabel)
-                            .bold()
-                        
-                        nonSmoking ? Text("❌") : Text("✅")
-                    }
-                    
-                    HStack {
-                        Text(petFriendlyLabel)
-                            .bold()
-                        
-                        petFriendly ? Text("✅") : Text("❌")
-                    }
-                    
-                    HStack {
-                        Text(airConditionerLabel)
-                            .bold()
-                        
-                        airConditioner ? Text("✅") : Text("❌")
-                    }
-                    
-                    HStack {
-                        Text(parkingLabel)
-                            .bold()
-                        
-                        parking ? Text("✅") : Text("❌")
-                    }
-                    
-                    HStack {
-                        Text(bicycleStorageLabel)
-                            .bold()
-                        
-                        bicycleStorage ? Text("✅") : Text("❌")
-                    }
-                    
-                    HStack(alignment: .top) {
-                        Text(additionalInfoLabel)
-                            .bold()
-                        
-                        Text(additionalInfo)
-                    }
+        NavigationView {
+            VStack(spacing: 15) {
+                CarouselView(index: $currentIndex, cardPadding: 100, items: roomImages, id: \.id) {roomImage, cardSize in
+                    Image(roomImage.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: cardSize.width, height: cardSize.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, -15)
+                .padding(.vertical)
+                
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text(addressLabel)
+                                .bold()
+                            
+                            Text(address)
+                        }
+                        
+                        HStack {
+                            Text(geoLocationLabel)
+                                .bold()
+                            
+                            Button(action: {
+                                isTooltipAlertShown = !isTooltipAlertShown
+                            }) {
+                                Image(systemName: "info.circle")
+                                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            }
+                            .padding(.leading, -2)
+                            .padding(.trailing, 5)
+                            .alert(tooltipText, isPresented: $isTooltipAlertShown) {
+                                Button("OK", role: .cancel) {}
+                            }
+                            
+                            Text(String(geoWidth) + ", " + String(geoLength))
+                                .onTapGesture {
+                                    self.openLocationOnMap(width: self.geoWidth, length: self.geoLength)
+                                }
+                        }
+                        
+                        HStack {
+                            Text(roomTypeLabel)
+                                .bold()
+                            
+                            switch roomType {
+                            case .apartment:
+                                Text(roomTypeApartmentLabel)
+                                
+                            case .couch:
+                                Text(roomTypeCouchLabel)
+                                
+                            case .room:
+                                Text(roomTypeRoomLabel)
+                            }
+                        }
+                        
+                        HStack {
+                            Text(pricePerNightLabel)
+                                .bold()
+                            
+                            switch currency {
+                            case .HUF:
+                                Text(String(Int(price.rounded())) + " Ft")
+                            case .EUR:
+                                Text("€"+String(price))
+                            case .USD:
+                                Text("$"+String(price))
+                            }
+                        }
+                        
+                        HStack(alignment: .top) {
+                            Text(acceptedPaymentMethodsLabel)
+                                .bold()
+                            
+                            VStack(alignment: .leading, spacing: 1) {
+                                ForEach(0..<acceptedPaymentMethods.count) {
+                                    switch acceptedPaymentMethods[$0] {
+                                    case .CASH:
+                                        Text("– Készpénz")
+                                    case .CARD:
+                                        Text("– Bankkártya")
+                                    case .CHORE:
+                                        Text("– Ellenszolgáltatás")
+                                    }
+                                }
+                            }
+                        }
+                        
+                        HStack {
+                            Text(maxGuestNumLabel)
+                                .bold()
+                            
+                            Text(String(maxGuestNum) + " fő")
+                        }
+                        
+                        HStack {
+                            Text(smokingLabel)
+                                .bold()
+                            
+                            nonSmoking ? Text("❌") : Text("✅")
+                        }
+                        
+                        HStack {
+                            Text(petFriendlyLabel)
+                                .bold()
+                            
+                            petFriendly ? Text("✅") : Text("❌")
+                        }
+                        
+                        HStack {
+                            Text(airConditionerLabel)
+                                .bold()
+                            
+                            airConditioner ? Text("✅") : Text("❌")
+                        }
+                        
+                        HStack {
+                            Text(parkingLabel)
+                                .bold()
+                            
+                            parking ? Text("✅") : Text("❌")
+                        }
+                        
+                        HStack {
+                            Text(bicycleStorageLabel)
+                                .bold()
+                            
+                            bicycleStorage ? Text("✅") : Text("❌")
+                        }
+                        
+                        HStack(alignment: .top) {
+                            Text(additionalInfoLabel)
+                                .bold()
+                            
+                            Text(additionalInfo)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(.bottom, 8)
+                
+                // TODO: navigation to the confirmation form
+                NavigationLink(destination: ProfileView()) {
+                    Text(bookButtonLabel)
+                }
+                .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
             }
-            .padding(.bottom, 8)
-            
-            Button(action: {}) {
-                Text(bookButtonLabel)
-            }
-            .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
+            .padding([.horizontal, .top], 15)
         }
-        .padding([.horizontal, .top], 15)
     }
     
     private func openLocationOnMap(width: Float, length: Float) {

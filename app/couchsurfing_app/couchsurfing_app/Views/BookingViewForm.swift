@@ -15,7 +15,7 @@ struct BookingViewForm: View {
     private let stay_start_text = "Tartózkodás kezdete"
     private let stay_end_text = "Tartózkodás vége"
     private let payment_method_text = "Fizetés módja"
-    private let payment_methods = ["Készpénz", "Bankkártya", "Ellenszolgáltatás"]
+    //private let payment_methods = ["Készpénz", "Bankkártya", "Ellenszolgáltatás"]
     private let price_range_text = "Preferált árkategória (HUF)"
     private let from_text = "-tól"
     private let to_text = "-ig"
@@ -24,12 +24,18 @@ struct BookingViewForm: View {
     private let search_text = "Keresés"
     private let currency_code = "HUF"
     
+    @State private var payment_methods = [
+        ListItem(name: "Készpénz"),
+        ListItem(name: "Bankkártya"),
+        ListItem(name: "Ellenszolgáltatás")
+    ]
+    
     @State private var other_needs = [
-        OtherNeed(name: "Nem-dohányzó"),
-        OtherNeed(name: "Állatbarát"),
-        OtherNeed(name: "Légkondíciónáló"),
-        OtherNeed(name: "Parkolóhely biztsoított"),
-        OtherNeed(name: "Bicikli tárolás biztosított")
+        ListItem(name: "Nem-dohányzó"),
+        ListItem(name: "Állatbarát"),
+        ListItem(name: "Légkondíciónáló"),
+        ListItem(name: "Parkolóhely biztsoított"),
+        ListItem(name: "Bicikli tárolás biztosított")
     ]
     
     @State private var booking_city = ""
@@ -62,15 +68,24 @@ struct BookingViewForm: View {
                     DatePicker(stay_start_text, selection: $stay_start_date, in: Date()..., displayedComponents: [.date])
                     
                     DatePicker(stay_end_text, selection: $stay_end_date, in: Calendar.current.date(byAdding: .day, value: 1, to: Date())!..., displayedComponents: [.date])
-                    
-                    // payment method
-                    Picker(payment_method_text, selection: $selected_payment_method) {
-                        ForEach(payment_methods, id: \.self) {
-                            Text($0)
+                } header: {
+                    Text(basic_info_text)
+                }
+                
+                // preferred payment method
+                Section {
+                    List {
+                        ForEach(0..<payment_methods.count, id: \.self) { index in
+                            Button(action: {
+                                payment_methods[index].is_selected = payment_methods[index].is_selected ? false : true
+                            }) {
+                                ListItemSelectedView(list_item: payment_methods[index])
+                            }
+                            .foregroundColor(.black)
                         }
                     }
                 } header: {
-                    Text(basic_info_text)
+                    Text(payment_method_text)
                 }
                 
                 // price range
@@ -115,11 +130,11 @@ struct BookingViewForm: View {
                 // other needs
                 Section {
                     List {
-                        ForEach(0..<other_needs.count) { index in
+                        ForEach(0..<other_needs.count, id: \.self) {index in
                             Button(action: {
                                 other_needs[index].is_selected = other_needs[index].is_selected ? false : true
                             }) {
-                                OtherNeedsListItemSelectedView(other_need: other_needs[index])
+                                ListItemSelectedView(list_item: other_needs[index])
                             }
                             .foregroundColor(.black)
                         }
