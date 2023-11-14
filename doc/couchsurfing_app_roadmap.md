@@ -173,12 +173,26 @@
 
 ### Szállás képernyő
 
-- Szállás adaitnak részletes megjelenítése + form elemek a foglalás leadásához. -> <b>form elemek új oldalon</b> a gombra nyomás után megjelenítve
+- Szállás adatainak részletes megjelenítése + form elemek a foglalás leadásához. -> <b>form elemek új oldalon</b> a gombra nyomás után megjelenítve
 
 - Képernyőterv: *TBD*
 
 - Képernyő:\
 <img src="markdown_images/views/accommodation_details_view.png" alt="szoba részletek oldal képernyő" height=500>
+
+- TODO:
+    - legyen ezen e képernyőn gomb, amely megnyomására lehet chatelni a kiadóval? -> ebben az esetben a kiadó user id-jával kellene megnyitni a chat képernyőt
+
+- Backend érintettség:
+    - **Kliens oldalon eltárolt state kerül felhasználásra a navigáció során**, nincs külön újabb végpont hívás a szállás adataiért. Abban az esetben, ha ezt nem lehet megvalósítani, kerül létrehozásra egy végpont, amely az adott szállás adait adja vissza.
+
+### Foglalás megerősítése form
+
+- Az kiválasztott szállás legfoglalása a megadott adatokkal. Az leadni kívánt foglalást adatait megadhatja a felhasználó, a form default értékei a store-ban eltárolt keresési értékek, illetve a szálláshoz tartozó adatok alapján vannak megadva.
+
+<img src="markdown_images/views/confirm_booking_view.png" alt="a foglalás megerősítéséhez tartozó form oldal teteje" height=500/>
+
+<img src="markdown_images/views/confirm_booking_view_bottom.png" alt="a foglalás megerősítéséhez tartozó form oldal alja" height=500/>
 
 - Backend érintettség:
     - **Kliens oldalon eltárolt state kerül felhasználásra a navigáció során**, nincs külön újabb végpont hívás a szállás adataiért. Abban az esetben, ha ezt nem lehet megvalósítani, kerül létrehozásra egy végpont, amely az adott szállás adait adja vissza.
@@ -426,11 +440,16 @@ Bejelentkezéskor/regisztrációkor a kliens megkapja a backendtől a bejelentke
 
 - Képernyő: *TBD*
 
+## Adatmodell
+
+<img src="markdown_images/data_model.png" alt="adatmodell"/>
+
 ## TODOs
 
 ### Kliens
 
 * Architektúra létrehozása a View objektumok mögé – üzleti logika, store és hálózati kérések kezelése
+* Bottom sheet nézet a ranglistán: adott felhasználó kiadó/bérlő értékelése -> kliens kérés sikeres, ha van az adatbázisban olyan foglalás, ahol a másik felhasználó kiadó/bérlő viszonyban van az aktuális felhasználóval, amúgy HTTP hiba státusz dobása, annak kezelése a kliens oldalon (a sikeres ágról is feedback mutatása)
 * Általános loading és error képernyők
 
 ### Backend

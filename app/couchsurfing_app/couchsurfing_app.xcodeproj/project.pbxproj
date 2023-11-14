@@ -27,6 +27,7 @@
 		23825AD22810CA0000AC73B6 /* RentViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23825AD12810CA0000AC73B6 /* RentViewForm.swift */; };
 		2387BAE72AFAFC5200D7648B /* OtherNeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387BAE62AFAFC5200D7648B /* OtherNeed.swift */; };
 		2387BAE92AFB021100D7648B /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387BAE82AFB021100D7648B /* PaymentMethod.swift */; };
+		2387BAEB2AFFB34800D7648B /* ConfirmBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387BAEA2AFFB34800D7648B /* ConfirmBookingView.swift */; };
 		2389E5FC28F60ED500EF2669 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389E5FB28F60ED500EF2669 /* ImagePicker.swift */; };
 		2389E5FE28F61B3000EF2669 /* SettingsPasswordViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389E5FD28F61B3000EF2669 /* SettingsPasswordViewForm.swift */; };
 		239B025A27D0415C0055AEBA /* couchsurfing_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B025927D0415C0055AEBA /* couchsurfing_appApp.swift */; };
@@ -73,6 +74,7 @@
 		23825AD12810CA0000AC73B6 /* RentViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewForm.swift; sourceTree = "<group>"; };
 		2387BAE62AFAFC5200D7648B /* OtherNeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNeed.swift; sourceTree = "<group>"; };
 		2387BAE82AFB021100D7648B /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		2387BAEA2AFFB34800D7648B /* ConfirmBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBookingView.swift; sourceTree = "<group>"; };
 		2389E5FB28F60ED500EF2669 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2389E5FD28F61B3000EF2669 /* SettingsPasswordViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPasswordViewForm.swift; sourceTree = "<group>"; };
 		239B025627D0415C0055AEBA /* couchsurfing_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = couchsurfing_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				23F0FB932AD6058500946CFF /* CustomTextField.swift */,
 				23068B622ADF46F000FBE05F /* CarouselView.swift */,
 				23068B672AE72F2800FBE05F /* AccommDetailsView.swift */,
+				2387BAEA2AFFB34800D7648B /* ConfirmBookingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				23E2724228209D8E00CD9A94 /* AccommListItemView.swift in Sources */,
 				23068B682AE72F2800FBE05F /* AccommDetailsView.swift in Sources */,
 				2379927229D10BD700B98C8C /* DisableScrollingModifier.swift in Sources */,
+				2387BAEB2AFFB34800D7648B /* ConfirmBookingView.swift in Sources */,
 				2379927829DA494400B98C8C /* RegistrationView.swift in Sources */,
 				23068B632ADF46F000FBE05F /* CarouselView.swift in Sources */,
 				23825AC62810879B00AC73B6 /* BookingViewForm.swift in Sources */,

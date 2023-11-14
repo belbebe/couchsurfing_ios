@@ -15,8 +15,10 @@ struct AccommDetailsVeiw: View {
     let geoWidth: Float = 47.500952
     let roomType: AccomTypeEnum = AccomTypeEnum.room
     let price: Float = 10000.0
+    let price_with_chores: Float = 7500.0
     let currency: Currency = .HUF
     let acceptedPaymentMethods: [PaymentMethod] = [.CASH, .CARD]
+    let is_paying_with_chores_accepted: Bool = true
     let maxGuestNum: Int = 3
     let nonSmoking: Bool = true
     let petFriendly: Bool = true
@@ -30,6 +32,7 @@ struct AccommDetailsVeiw: View {
     @State var currentIndex: Int = 0
     
     //MARK: labels and other text values
+    let nav_title: String = "A szállás adatai"
     let addressLabel: String = "Cím:"
     let geoLocationLabel: String = "Földrajzi helyzet:"
     let tooltipText: String = "A koordináták megérintésével megtekintheted az általuk megjelölt földrajzi helyet a térképen!"
@@ -38,7 +41,9 @@ struct AccommDetailsVeiw: View {
     let roomTypeCouchLabel: String = "Kanapé"
     let roomTypeRoomLabel: String = "Szoba"
     let pricePerNightLabel: String = "Ár éjszakánként:"
+    let price_per_night_with_chores_label: String = "Ár éjszakánként ellenszolgáltatással:"
     let acceptedPaymentMethodsLabel: String = "Elfogadott fizetési módok:"
+    let is_paying_with_chores_accepted_label: String = "Ellenszolgáltatás elfogadott:"
     let maxGuestNumLabel: String = "Maximális vendégszám:"
     let smokingLabel: String = "Dohányzó:"
     let petFriendlyLabel: String = "Kisállatbarát:"
@@ -90,7 +95,7 @@ struct AccommDetailsVeiw: View {
                                 Button("OK", role: .cancel) {}
                             }
                             
-                            Text(String(geoWidth) + ", " + String(geoLength))
+                            Text("\(geoWidth), \(geoLength)")
                                 .onTapGesture {
                                     self.openLocationOnMap(width: self.geoWidth, length: self.geoLength)
                                 }
@@ -126,6 +131,22 @@ struct AccommDetailsVeiw: View {
                             }
                         }
                         
+                        if (is_paying_with_chores_accepted) {
+                            HStack {
+                                Text(price_per_night_with_chores_label)
+                                    .bold()
+                                
+                                switch currency {
+                                case .HUF:
+                                    Text(String(Int(price_with_chores.rounded())) + " Ft")
+                                case .EUR:
+                                    Text("€"+String(price_with_chores))
+                                case .USD:
+                                    Text("$"+String(price_with_chores))
+                                }
+                            }
+                        }
+                        
                         HStack(alignment: .top) {
                             Text(acceptedPaymentMethodsLabel)
                                 .bold()
@@ -142,6 +163,13 @@ struct AccommDetailsVeiw: View {
                                     }
                                 }
                             }
+                        }
+                        
+                        HStack {
+                            Text(is_paying_with_chores_accepted_label)
+                                .bold()
+                            
+                            is_paying_with_chores_accepted ? Text("✅") : Text("❌")
                         }
                         
                         HStack {
@@ -198,12 +226,13 @@ struct AccommDetailsVeiw: View {
                 .padding(.bottom, 8)
                 
                 // TODO: navigation to the confirmation form
-                NavigationLink(destination: ProfileView()) {
+                NavigationLink(destination: ConfirmBookingView()) {
                     Text(bookButtonLabel)
                 }
                 .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
             }
             .padding([.horizontal, .top], 15)
+            .navigationTitle(nav_title)
         }
     }
     
