@@ -52,6 +52,7 @@ struct AccommDetailsVeiw: View {
     let bicycleStorageLabel: String = "Biciklitároló:"
     let additionalInfoLabel: String = "Egyéb:"
     let bookButtonLabel: String = "Lefoglalom"
+    let accommodation_owner_profile_button_label: String = "A kiadó profilja"
     
     @State var isTooltipAlertShown = false
     
@@ -225,11 +226,17 @@ struct AccommDetailsVeiw: View {
                 }
                 .padding(.bottom, 8)
                 
-                // TODO: navigation to the confirmation form
-                NavigationLink(destination: ConfirmBookingView()) {
-                    Text(bookButtonLabel)
+                HStack (spacing: 16) {
+                    NavigationLink(destination: ConfirmBookingView()) {
+                        Text(bookButtonLabel)
+                    }
+                    .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
+                    
+                    NavigationLink(destination: OtherUserProfileView()) {
+                        Text(accommodation_owner_profile_button_label)
+                    }
+                    .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
                 }
-                .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
             }
             .padding([.horizontal, .top], 15)
             .navigationTitle(nav_title)
