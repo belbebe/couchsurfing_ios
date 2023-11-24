@@ -482,10 +482,10 @@ Bejelentkezéskor/regisztrációkor a kliens megkapja a backendtől a bejelentke
 * a GET /api/accommodations kérésben csak olyan szállások jöjjenek vissza, amelynél a tulajdonos ID nem azonos az adott user id-jával -> módosítani a request objektumot? ✅
 * a RoomResponse-ba fel kell venni, hogy lehetséges-e házi munkával fizetni, és ha igen, akkor mennyi lesz az új ár, továbbá az elfogadott fizetési módokat ✅
 * RoomRequestbe fel kell venni, hogy lehetséges-e házi munkával fizetni, és ha igen, akkor mennyi lesz az új ár ✅
-* kell egy tábla a lehetséges fizetési módoknak ("payment_method"), illetve egy kapcsoló tábla a "room" és a "payment_method" tábla között -> adatmodell módosítása -> boolean property-kkel lett megoldva many-to-many kapcsolat helyett ✅
-* POST /api/booking végpont -> Booking komponensek (service, controller, stb.) - hibára fusson, ha a user a saját szállását foglalná le (kell userID a requestbe)
-* BookingRequest típust módosítani (fent leírt folyamat és frontend alapján) -> DB és adatmodell módosítása
+* kell egy tábla a lehetséges fizetési módoknak ("payment_method"), illetve egy kapcsoló tábla a "room" és a "payment_method" tábla között -> adatmodell módosítása -> <b>WON'T DO:</b> boolean property-kkel lett megoldva many-to-many kapcsolat helyett ✅
+* POST /api/booking végpont -> Booking komponensek (service, controller, stb.) - hibára fusson, ha a user a saját szállását foglalná le (kell userID a requestbe) ✅
+* BookingRequest típust módosítani (fent leírt folyamat és frontend alapján) -> DB és adatmodell módosítása ✅
 * Leaderboard komponensek
-* Room tábla bővítése egy boolean értékkel, hogy lehetséges-e házimunkával/ellenszolgáltatással fizetni, és ha igen, akkor mennyi abban az esetben a kedvezményes ár. RoomRequest objektum átalakítása ennek megfelelően.
+* Room tábla bővítése egy boolean értékkel, hogy lehetséges-e házimunkával/ellenszolgáltatással fizetni, és ha igen, akkor mennyi abban az esetben a kedvezményes ár. RoomRequest objektum átalakítása ennek megfelelően. ✅
 * Chat adatbázis tábla létrehozása, Spring objektumok (Request, Response, Controller, stb.) létrehozása a funkcióhoz, kommunikáció WebSocket protokollon keresztül
 * Képek tárolása rescource fájlokként, adatbázisban a kép ID kezelést megoldani
