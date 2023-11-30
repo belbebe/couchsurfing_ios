@@ -487,5 +487,8 @@ Bejelentkezéskor/regisztrációkor a kliens megkapja a backendtől a bejelentke
 * BookingRequest típust módosítani (fent leírt folyamat és frontend alapján) -> DB és adatmodell módosítása ✅
 * Leaderboard komponensek ✅
 * Room tábla bővítése egy boolean értékkel, hogy lehetséges-e házimunkával/ellenszolgáltatással fizetni, és ha igen, akkor mennyi abban az esetben a kedvezményes ár. RoomRequest objektum átalakítása ennek megfelelően. ✅
-* Chat adatbázis tábla létrehozása, Spring objektumok (Request, Response, Controller, stb.) létrehozása a funkcióhoz, kommunikáció WebSocket protokollon keresztül
+* User funkciók átnézése (pl. password update, végpontok, státuszkódok)
+* Chat adatbázis tábla létrehozása, Spring objektumok (Request, Response, Controller, stb.) létrehozása a funkcióhoz, kommunikáció WebSocket protokollon keresztül ✅
 * Képek tárolása rescource fájlokként, adatbázisban a kép ID kezelést megoldani
+* Megfelelő státuszkódok beállítása
+* Továbbfejlesztési ötlet: a BookingResponse-ban ne (csak) a roomId-k szerepeljenek, hanem pl. a szállás címe. -> DataProjection
