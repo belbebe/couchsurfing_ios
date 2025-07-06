@@ -12,7 +12,7 @@ struct StartupView: View {
     private let registration_btn_text = "Regisztráció"
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Image("Couchsurfing app - Logo", label: Text("Logo"))
                     .resizable()

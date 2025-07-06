@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AccomTypeEnum {
+enum RoomType: Codable {
     case apartment
     case room
     case couch

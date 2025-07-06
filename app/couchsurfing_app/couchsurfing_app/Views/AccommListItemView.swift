@@ -37,7 +37,7 @@ struct AccommListItemView: View {
         return ret
     }
     
-    private func process_accom_type(type: AccomTypeEnum) -> String {
+    private func process_accom_type(type: RoomType) -> String {
         switch type {
         case .apartment:
             return "Apartman"

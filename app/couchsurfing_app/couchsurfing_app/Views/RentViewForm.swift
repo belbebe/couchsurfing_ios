@@ -51,7 +51,7 @@ struct RentViewForm: View {
     @State private var price_a_night = 0.0
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 // geo data
                 Section {

@@ -11,7 +11,7 @@ struct LoginView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Image("Couchsurfing app - Logo", label: Text("Logo"))
                     .resizable()

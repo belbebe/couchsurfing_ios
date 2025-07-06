@@ -14,6 +14,12 @@
 		2341B7462AE73808005A335E /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2341B7452AE73807005A335E /* Currency.swift */; };
 		2341B7482AE88070005A335E /* AccommImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2341B7472AE88070005A335E /* AccommImage.swift */; };
 		2355F2F027FE48F40013DC26 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355F2EF27FE48F40013DC26 /* ProfileView.swift */; };
+		2356FCE52B1A39E900BB94E5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356FCE42B1A39E900BB94E5 /* UserModel.swift */; };
+		2356FCE72B1B8D3500BB94E5 /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356FCE62B1B8D3400BB94E5 /* RoomModel.swift */; };
+		2356FCE92B1B8F9F00BB94E5 /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356FCE82B1B8F9F00BB94E5 /* BookingModel.swift */; };
+		2356FCEB2B1B948300BB94E5 /* LeaderboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356FCEA2B1B948300BB94E5 /* LeaderboardModel.swift */; };
+		2356FCEE2B1BA1C100BB94E5 /* BookingViewFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356FCED2B1BA1C100BB94E5 /* BookingViewFormViewModel.swift */; };
+		2356FCF12B1D3EF300BB94E5 /* AccommodationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356FCF02B1D3EF300BB94E5 /* AccommodationRequest.swift */; };
 		2379926E29C7BF4A00B98C8C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2379926D29C7BF4A00B98C8C /* LoginView.swift */; };
 		2379927029D1082200B98C8C /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2379926F29D1082200B98C8C /* LoginFormView.swift */; };
 		2379927229D10BD700B98C8C /* DisableScrollingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2379927129D10BD700B98C8C /* DisableScrollingModifier.swift */; };
@@ -43,7 +49,7 @@
 		23D678A727E2BA5F001AE964 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */; };
 		23DD3A9629ECA57300D2D437 /* AccommListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3A9529ECA57300D2D437 /* AccommListView.swift */; };
 		23DD3A9A29ECB36B00D2D437 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3A9929ECB36B00D2D437 /* Accommodation.swift */; };
-		23DD3A9C29ECB4B100D2D437 /* AccomTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3A9B29ECB4B100D2D437 /* AccomTypeEnum.swift */; };
+		23DD3A9C29ECB4B100D2D437 /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3A9B29ECB4B100D2D437 /* RoomType.swift */; };
 		23E27240282084F900CD9A94 /* ButtonDesignModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2723F282084F900CD9A94 /* ButtonDesignModifier.swift */; };
 		23E2724228209D8E00CD9A94 /* AccommListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2724128209D8E00CD9A94 /* AccommListItemView.swift */; };
 		23F0FB862AD44C3800946CFF /* ChatTitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F0FB852AD44C3800946CFF /* ChatTitleRow.swift */; };
@@ -63,6 +69,12 @@
 		2341B7452AE73807005A335E /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		2341B7472AE88070005A335E /* AccommImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommImage.swift; sourceTree = "<group>"; };
 		2355F2EF27FE48F40013DC26 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2356FCE42B1A39E900BB94E5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		2356FCE62B1B8D3400BB94E5 /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
+		2356FCE82B1B8F9F00BB94E5 /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
+		2356FCEA2B1B948300BB94E5 /* LeaderboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardModel.swift; sourceTree = "<group>"; };
+		2356FCED2B1BA1C100BB94E5 /* BookingViewFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewFormViewModel.swift; sourceTree = "<group>"; };
+		2356FCF02B1D3EF300BB94E5 /* AccommodationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationRequest.swift; sourceTree = "<group>"; };
 		2379926D29C7BF4A00B98C8C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2379926F29D1082200B98C8C /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
 		2379927129D10BD700B98C8C /* DisableScrollingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollingModifier.swift; sourceTree = "<group>"; };
@@ -93,7 +105,7 @@
 		23D678A627E2BA5F001AE964 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
 		23DD3A9529ECA57300D2D437 /* AccommListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommListView.swift; sourceTree = "<group>"; };
 		23DD3A9929ECB36B00D2D437 /* Accommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
-		23DD3A9B29ECB4B100D2D437 /* AccomTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomTypeEnum.swift; sourceTree = "<group>"; };
+		23DD3A9B29ECB4B100D2D437 /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		23E2723F282084F900CD9A94 /* ButtonDesignModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDesignModifier.swift; sourceTree = "<group>"; };
 		23E2724128209D8E00CD9A94 /* AccommListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommListItemView.swift; sourceTree = "<group>"; };
 		23F0FB852AD44C3800946CFF /* ChatTitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTitleRow.swift; sourceTree = "<group>"; };
@@ -147,6 +159,22 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		2356FCEC2B1B951400BB94E5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2356FCED2B1BA1C100BB94E5 /* BookingViewFormViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2356FCEF2B1D3EDC00BB94E5 /* RequestObjects */ = {
+			isa = PBXGroup;
+			children = (
+				2356FCF02B1D3EF300BB94E5 /* AccommodationRequest.swift */,
+			);
+			path = RequestObjects;
+			sourceTree = "<group>";
+		};
 		2379926829BE9DF200B98C8C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,10 +221,11 @@
 		2379926B29BEA08700B98C8C /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				23F0FB8A2AD5E90800946CFF /* Chat */,
 				23C5F8A6281A051F005D928F /* UserLeaderboardInfo.swift */,
 				23825AC72810A3DF00AC73B6 /* ListItem.swift */,
 				23DD3A9929ECB36B00D2D437 /* Accommodation.swift */,
-				23DD3A9B29ECB4B100D2D437 /* AccomTypeEnum.swift */,
+				23DD3A9B29ECB4B100D2D437 /* RoomType.swift */,
 				23F0FB872AD44E1500946CFF /* ChatTitleRowUser.swift */,
 				2341B7452AE73807005A335E /* Currency.swift */,
 				2341B7472AE88070005A335E /* AccommImage.swift */,
@@ -242,6 +271,8 @@
 		239B025827D0415C0055AEBA /* couchsurfing_app */ = {
 			isa = PBXGroup;
 			children = (
+				2356FCEF2B1D3EDC00BB94E5 /* RequestObjects */,
+				2356FCEC2B1B951400BB94E5 /* ViewModels */,
 				23F0FB892AD5E8F700946CFF /* Models */,
 				2379926929BE9F4F00B98C8C /* Utils */,
 				2379926829BE9DF200B98C8C /* Views */,
@@ -276,7 +307,10 @@
 		23F0FB892AD5E8F700946CFF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				23F0FB8A2AD5E90800946CFF /* Chat */,
+				2356FCE42B1A39E900BB94E5 /* UserModel.swift */,
+				2356FCE62B1B8D3400BB94E5 /* RoomModel.swift */,
+				2356FCE82B1B8F9F00BB94E5 /* BookingModel.swift */,
+				2356FCEA2B1B948300BB94E5 /* LeaderboardModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,29 +396,35 @@
 			files = (
 				23F0FB922AD604D700946CFF /* MessageField.swift in Sources */,
 				23825AC82810A3DF00AC73B6 /* ListItem.swift in Sources */,
+				2356FCE72B1B8D3500BB94E5 /* RoomModel.swift in Sources */,
 				23C5F8A12819CA86005D928F /* CouchSurfongCustomColor.swift in Sources */,
 				23C5F8A7281A0520005D928F /* UserLeaderboardInfo.swift in Sources */,
 				237E969D2B0430C700BF0C70 /* OtherUserProfileView.swift in Sources */,
 				2389E5FC28F60ED500EF2669 /* ImagePicker.swift in Sources */,
 				23F0FB8C2AD5E92C00946CFF /* ChatMessage.swift in Sources */,
 				23E27240282084F900CD9A94 /* ButtonDesignModifier.swift in Sources */,
+				2356FCEB2B1B948300BB94E5 /* LeaderboardModel.swift in Sources */,
 				23825AD22810CA0000AC73B6 /* RentViewForm.swift in Sources */,
 				2387BAE72AFAFC5200D7648B /* OtherNeed.swift in Sources */,
+				2356FCE52B1A39E900BB94E5 /* UserModel.swift in Sources */,
 				2389E5FE28F61B3000EF2669 /* SettingsPasswordViewForm.swift in Sources */,
 				2379927629DA3FC000B98C8C /* StartupView.swift in Sources */,
 				2341B7462AE73808005A335E /* Currency.swift in Sources */,
+				2356FCE92B1B8F9F00BB94E5 /* BookingModel.swift in Sources */,
 				23C5F8A52819F3E8005D928F /* UserLeaderboardView.swift in Sources */,
 				237D562C28ECF733000C4CF7 /* SettingsProfileViewForm.swift in Sources */,
 				23DD3A9629ECA57300D2D437 /* AccommListView.swift in Sources */,
+				2356FCF12B1D3EF300BB94E5 /* AccommodationRequest.swift in Sources */,
 				239B025C27D0415C0055AEBA /* ContentView.swift in Sources */,
 				23F0FB942AD6058500946CFF /* CustomTextField.swift in Sources */,
 				23F0FB882AD44E1500946CFF /* ChatTitleRowUser.swift in Sources */,
-				23DD3A9C29ECB4B100D2D437 /* AccomTypeEnum.swift in Sources */,
+				23DD3A9C29ECB4B100D2D437 /* RoomType.swift in Sources */,
 				23C5F8A32819EF53005D928F /* LeaderboardView.swift in Sources */,
 				23D678A727E2BA5F001AE964 /* MultipleSelectionRow.swift in Sources */,
 				2387BAE92AFB021100D7648B /* PaymentMethod.swift in Sources */,
 				23E2724228209D8E00CD9A94 /* AccommListItemView.swift in Sources */,
 				23068B682AE72F2800FBE05F /* AccommDetailsView.swift in Sources */,
+				2356FCEE2B1BA1C100BB94E5 /* BookingViewFormViewModel.swift in Sources */,
 				2379927229D10BD700B98C8C /* DisableScrollingModifier.swift in Sources */,
 				2387BAEB2AFFB34800D7648B /* ConfirmBookingView.swift in Sources */,
 				2379927829DA494400B98C8C /* RegistrationView.swift in Sources */,
@@ -543,6 +583,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,6 +616,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

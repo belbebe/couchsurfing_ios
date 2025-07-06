@@ -72,7 +72,7 @@ struct ConfirmBookingView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 //MARK: stay start and end date
                 Section {

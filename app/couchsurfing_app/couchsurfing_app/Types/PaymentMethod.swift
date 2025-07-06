@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PaymentMethod {
+enum PaymentMethod: Codable {
     case CASH
     case CARD
     case CHORE

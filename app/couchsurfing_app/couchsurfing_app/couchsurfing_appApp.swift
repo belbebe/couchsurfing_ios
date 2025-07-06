@@ -5,6 +5,7 @@
 //  Created by Belcsik Bence on 2022. 03. 03..
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,9 @@ struct couchsurfing_appApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: UserModel.self)
+        .modelContainer(for: RoomModel.self)
+        .modelContainer(for: BookingModel.self)
+        .modelContainer(for: LeaderboardModel.self)
     }
 }

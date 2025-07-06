@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Currency {
+enum Currency: Codable { 
     case HUF
     case EUR
     case USD

@@ -13,7 +13,7 @@ struct AccommDetailsVeiw: View {
     let address: String = "Budapest, Fő utca 1."
     let geoLength: Float = 19.046716
     let geoWidth: Float = 47.500952
-    let roomType: AccomTypeEnum = AccomTypeEnum.room
+    let roomType: RoomType = RoomType.room
     let price: Float = 10000.0
     let price_with_chores: Float = 7500.0
     let currency: Currency = .HUF
@@ -59,7 +59,7 @@ struct AccommDetailsVeiw: View {
     
     var body: some View {
 
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 15) {
                 CarouselView(index: $currentIndex, cardPadding: 100, items: roomImages, id: \.id) {roomImage, cardSize in
                     Image(roomImage.image)

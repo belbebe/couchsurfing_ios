@@ -13,7 +13,7 @@ struct Accommodation: Hashable, Identifiable {
     var address: String
     var geo_long: Float
     var geo_lat: Float
-    var type: AccomTypeEnum
+    var type: RoomType
     var max_geust_num: Int
     var other_needs: [OtherNeed]
     var additional_info: String

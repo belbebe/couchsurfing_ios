@@ -27,7 +27,7 @@ struct ProfileView: View {
     private var view_bookings_text: String = "Foglalások\nmegtekintése"
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 Spacer()
                     .frame(height: 15)

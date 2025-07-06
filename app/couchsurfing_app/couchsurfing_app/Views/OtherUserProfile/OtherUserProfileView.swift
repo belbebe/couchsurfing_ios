@@ -22,7 +22,7 @@ struct OtherUserProfileView: View {
     private var start_chat_text: String = "Csevegés indítása"
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 Spacer()
                     .frame(height: 15)

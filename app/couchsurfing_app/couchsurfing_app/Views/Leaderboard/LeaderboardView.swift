@@ -32,7 +32,7 @@ struct LeaderboardView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 // leaderboard selection
                 Picker(picker_label, selection: $picker_state) {

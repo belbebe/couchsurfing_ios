@@ -18,7 +18,7 @@ struct AccommListView: View {
     ]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(0..<results.count) { index in
                     AccommListItemView(accommodation: results[index])
