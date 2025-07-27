@@ -49,20 +49,10 @@ struct BookingFormView: View {
                 }
                 
                 // preferred payment method
-                Section {
-                    List {
-                        ForEach(0..<viewModel.data.paymentMethods.count, id: \.self) { index in
-                            Button(action: {
-                                viewModel.data.paymentMethods[index].is_selected = viewModel.data.paymentMethods[index].is_selected ? false : true
-                            }) {
-                                ListItemSelectedView(list_item: viewModel.data.paymentMethods[index])
-                            }
-                            .foregroundColor(.black)
-                        }
-                    }
-                } header: {
-                    Text(paymentMethodText)
-                }
+                SectionWithSelectableListItemsView(
+                    listItems: viewModel.data.paymentMethods,
+                    header: Text(paymentMethodText)
+                )
                 
                 // price range
                 Section {
@@ -124,20 +114,10 @@ struct BookingFormView: View {
                 }
                 
                 // other needs
-                Section {
-                    List {
-                        ForEach(0..<viewModel.data.otherNeeds.count, id: \.self) {index in
-                            Button(action: {
-                                viewModel.data.otherNeeds[index].is_selected = viewModel.data.otherNeeds[index].is_selected ? false : true
-                            }) {
-                                ListItemSelectedView(list_item: viewModel.data.otherNeeds[index])
-                            }
-                            .foregroundColor(.black)
-                        }
-                    }
-                } header: {
-                    Text(otherNeedsText)
-                }
+                SectionWithSelectableListItemsView(
+                    listItems: viewModel.data.otherNeeds,
+                    header: Text(otherNeedsText)
+                )
                 
                 // search button
                 Section {

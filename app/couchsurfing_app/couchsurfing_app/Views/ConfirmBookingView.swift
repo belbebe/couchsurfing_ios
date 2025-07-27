@@ -72,7 +72,7 @@ struct ConfirmBookingView: View {
     }
     
     var body: some View {
-        NavigationView {
+        /*NavigationView {
             Form {
                 //MARK: stay start and end date
                 Section {
@@ -107,15 +107,9 @@ struct ConfirmBookingView: View {
                 
                 //MARK: payment with chores
                 if(is_payment_with_chores_accepted) {
-                    Section {
-                        Button(action: {
-                            pay_with_chores[0].is_selected = pay_with_chores[0].is_selected ? false : true
-                        }) {
-                            ListItemSelectedView(list_item: pay_with_chores[0])
-                        }
-                        .foregroundColor(.black)
-                    } header: {
-                        HStack {
+                    SectionWithSelectableListItemsView(
+                        listItems: pay_with_chores,
+                        header: HStack {
                             Text(payment_with_chores_section_header)
                             
                             Button(action: {
@@ -130,7 +124,31 @@ struct ConfirmBookingView: View {
                                 Button("OK", role: .cancel) {}
                             }
                         }
-                    }
+                    )
+//                    Section {
+//                        Button(action: {
+//                            pay_with_chores[0].isSelected = pay_with_chores[0].isSelected ? false : true
+//                        }) {
+//                            ListItemSelectedView(listItem: pay_with_chores[0])
+//                        }
+//                        .foregroundColor(.black)
+//                    } header: {
+//                        HStack {
+//                            Text(payment_with_chores_section_header)
+//                            
+//                            Button(action: {
+//                                is_chores_tooltip_alert_shown = !is_chores_tooltip_alert_shown
+//                            }) {
+//                                Image(systemName: "info.circle")
+//                                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+//                            }
+//                            .padding(.leading, -2)
+//                            .padding(.trailing, 5)
+//                            .alert(chores_tooltip_text, isPresented: $is_chores_tooltip_alert_shown) {
+//                                Button("OK", role: .cancel) {}
+//                            }
+//                        }
+//                    }
                 }
                 
                 //MARK: additional notes
@@ -224,7 +242,7 @@ struct ConfirmBookingView: View {
                     }
                 }
             }
-        }
+        }*/
     }
     
     private func map_method_to_text(payment_method: PaymentMethod) -> String {

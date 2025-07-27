@@ -24,7 +24,7 @@ struct ContentView: View {
                     Label(booking_tab_text, systemImage: "calendar")
                 }
             // "Szoba kiadása" tab
-            RentViewForm()
+            RentFormView()
                 .tabItem {
                     Label(renting_tab_text, systemImage: "house")
                 }
