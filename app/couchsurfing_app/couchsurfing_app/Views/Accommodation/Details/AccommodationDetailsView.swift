@@ -1,5 +1,5 @@
 //
-//  AccommDetailsVeiw.swift
+//  AccommodationDetailsView.swift
 //  couchsurfing_app
 //
 //  Created by Belcsik Bence on 24/10/2023.
@@ -8,30 +8,9 @@
 import SwiftUI
 import MapKit
 
-struct AccommDetailsVeiw: View {
-    // TODO: create Model object for the room data
-    let address: String = "Budapest, Fő utca 1."
-    let geoLength: Float = 19.046716
-    let geoWidth: Float = 47.500952
-    let roomType: AccomTypeEnum = AccomTypeEnum.room
-    let price: Float = 10000.0
-    let price_with_chores: Float = 7500.0
-    let currency: Currency = .HUF
-    let acceptedPaymentMethods: [PaymentMethod] = [.CASH, .CARD]
-    let is_paying_with_chores_accepted: Bool = true
-    let maxGuestNum: Int = 3
-    let nonSmoking: Bool = true
-    let petFriendly: Bool = true
-    let airConditioner: Bool = true
-    let parking: Bool = false
-    let bicycleStorage: Bool = true
-    let additionalInfo: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    
-    //MARK: carousel properties
-    let roomImages: [AccommImage] = [AccommImage(image: "living_room"), AccommImage(image: "living_room2"), AccommImage(image: "bedroom")]
-    @State var currentIndex: Int = 0
-    
-    //MARK: labels and other text values
+struct AccommodationDetailsView: View {
+    // MARK: - labels and other text values
+    // TODO: create constants extension for the labels
     let nav_title: String = "A szállás adatai"
     let addressLabel: String = "Cím:"
     let geoLocationLabel: String = "Földrajzi helyzet:"
@@ -54,14 +33,13 @@ struct AccommDetailsVeiw: View {
     let bookButtonLabel: String = "Lefoglalom"
     let accommodation_owner_profile_button_label: String = "A kiadó profilja"
     
-    @State var isTooltipAlertShown = false
-    
+    @StateObject private var viewModel = AccommodationDetailsViewModel()
     
     var body: some View {
 
         NavigationView {
             VStack(spacing: 15) {
-                CarouselView(index: $currentIndex, cardPadding: 100, items: roomImages, id: \.id) {roomImage, cardSize in
+                CarouselView(index: $viewModel.data.currentCarouselIndex, cardPadding: 100, items: viewModel.data.roomImages, id: \.id) {roomImage, cardSize in
                     Image(roomImage.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -71,13 +49,14 @@ struct AccommDetailsVeiw: View {
                 .padding(.horizontal, -15)
                 .padding(.vertical)
                 
+                // TODO: add fading design to the bottom of the scroll view
                 ScrollView {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
                             Text(addressLabel)
                                 .bold()
                             
-                            Text(address)
+                            Text(viewModel.data.address)
                         }
                         
                         HStack {
@@ -85,20 +64,20 @@ struct AccommDetailsVeiw: View {
                                 .bold()
                             
                             Button(action: {
-                                isTooltipAlertShown = !isTooltipAlertShown
+                                viewModel.data.isTooltipAlertShown = !viewModel.data.isTooltipAlertShown
                             }) {
                                 Image(systemName: "info.circle")
                                     .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                             }
                             .padding(.leading, -2)
                             .padding(.trailing, 5)
-                            .alert(tooltipText, isPresented: $isTooltipAlertShown) {
+                            .alert(tooltipText, isPresented: $viewModel.data.isTooltipAlertShown) {
                                 Button("OK", role: .cancel) {}
                             }
                             
-                            Text("\(geoWidth), \(geoLength)")
+                            Text("\(viewModel.data.geoWidth), \(viewModel.data.geoLength)")
                                 .onTapGesture {
-                                    self.openLocationOnMap(width: self.geoWidth, length: self.geoLength)
+                                    viewModel.openLocationOnMap()
                                 }
                         }
                         
@@ -106,7 +85,7 @@ struct AccommDetailsVeiw: View {
                             Text(roomTypeLabel)
                                 .bold()
                             
-                            switch roomType {
+                            switch viewModel.data.roomType {
                             case .apartment:
                                 Text(roomTypeApartmentLabel)
                                 
@@ -122,28 +101,28 @@ struct AccommDetailsVeiw: View {
                             Text(pricePerNightLabel)
                                 .bold()
                             
-                            switch currency {
+                            switch viewModel.data.currency {
                             case .HUF:
-                                Text(String(Int(price.rounded())) + " Ft")
+                                Text("\(Int(viewModel.data.price.rounded())) Ft")
                             case .EUR:
-                                Text("€"+String(price))
+                                Text("€\(viewModel.data.price)")
                             case .USD:
-                                Text("$"+String(price))
+                                Text("$\(viewModel.data.price)")
                             }
                         }
                         
-                        if (is_paying_with_chores_accepted) {
+                        if (viewModel.data.isPayingWithChoresAccepted) {
                             HStack {
                                 Text(price_per_night_with_chores_label)
                                     .bold()
                                 
-                                switch currency {
+                                switch viewModel.data.currency {
                                 case .HUF:
-                                    Text(String(Int(price_with_chores.rounded())) + " Ft")
+                                    Text("\(Int(viewModel.data.priceWithChores.rounded())) Ft")
                                 case .EUR:
-                                    Text("€"+String(price_with_chores))
+                                    Text("€\(viewModel.data.priceWithChores)")
                                 case .USD:
-                                    Text("$"+String(price_with_chores))
+                                    Text("$\(viewModel.data.priceWithChores)")
                                 }
                             }
                         }
@@ -153,8 +132,8 @@ struct AccommDetailsVeiw: View {
                                 .bold()
                             
                             VStack(alignment: .leading, spacing: 1) {
-                                ForEach(0..<acceptedPaymentMethods.count) {
-                                    switch acceptedPaymentMethods[$0] {
+                                ForEach(0..<viewModel.data.acceptedPaymentMethods.count) {
+                                    switch viewModel.data.acceptedPaymentMethods[$0] {
                                     case .CASH:
                                         Text("– Készpénz")
                                     case .CARD:
@@ -170,56 +149,56 @@ struct AccommDetailsVeiw: View {
                             Text(is_paying_with_chores_accepted_label)
                                 .bold()
                             
-                            is_paying_with_chores_accepted ? Text("✅") : Text("❌")
+                            viewModel.data.isPayingWithChoresAccepted ? Text("✅") : Text("❌")
                         }
                         
                         HStack {
                             Text(maxGuestNumLabel)
                                 .bold()
                             
-                            Text(String(maxGuestNum) + " fő")
+                            Text("\(viewModel.data.maxGuestNum) fő")
                         }
                         
                         HStack {
                             Text(smokingLabel)
                                 .bold()
                             
-                            nonSmoking ? Text("❌") : Text("✅")
+                            viewModel.data.isNonSmoking ? Text("❌") : Text("✅")
                         }
                         
                         HStack {
                             Text(petFriendlyLabel)
                                 .bold()
                             
-                            petFriendly ? Text("✅") : Text("❌")
+                            viewModel.data.isPetFriendly ? Text("✅") : Text("❌")
                         }
                         
                         HStack {
                             Text(airConditionerLabel)
                                 .bold()
                             
-                            airConditioner ? Text("✅") : Text("❌")
+                            viewModel.data.isAirConditioned ? Text("✅") : Text("❌")
                         }
                         
                         HStack {
                             Text(parkingLabel)
                                 .bold()
                             
-                            parking ? Text("✅") : Text("❌")
+                            viewModel.data.isParkingAvailable ? Text("✅") : Text("❌")
                         }
                         
                         HStack {
                             Text(bicycleStorageLabel)
                                 .bold()
                             
-                            bicycleStorage ? Text("✅") : Text("❌")
+                            viewModel.data.isBicycleStorageAvailable ? Text("✅") : Text("❌")
                         }
                         
                         HStack(alignment: .top) {
                             Text(additionalInfoLabel)
                                 .bold()
                             
-                            Text(additionalInfo)
+                            Text(viewModel.data.additionalInfo)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -242,27 +221,8 @@ struct AccommDetailsVeiw: View {
             .navigationTitle(nav_title)
         }
     }
-    
-    private func openLocationOnMap(width: Float, length: Float) {
-        let latitude: CLLocationDegrees = Double(width)
-        let longitude: CLLocationDegrees = Double(length)
-        let regionDistance: CLLocationDistance = 10000
-        
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        
-        mapItem.name = "Couch"
-        mapItem.openInMaps(launchOptions: options)
-    }
 }
 
 #Preview {
-    AccommDetailsVeiw()
+    AccommodationDetailsView()
 }
