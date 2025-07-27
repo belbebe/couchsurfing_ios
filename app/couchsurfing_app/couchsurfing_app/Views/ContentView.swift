@@ -19,7 +19,7 @@ struct ContentView: View {
         TabView {
             // "Foglalás" tab
             //BookingView()
-            BookingViewForm()
+            BookingFormView()
                 .tabItem {
                     Label(booking_tab_text, systemImage: "calendar")
                 }
