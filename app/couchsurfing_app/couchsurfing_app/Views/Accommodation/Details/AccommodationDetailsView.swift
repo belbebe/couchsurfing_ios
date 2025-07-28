@@ -36,10 +36,9 @@ struct AccommodationDetailsView: View {
     @StateObject private var viewModel = AccommodationDetailsViewModel()
     
     var body: some View {
-
         NavigationView {
             VStack(spacing: 15) {
-                CarouselView(index: $viewModel.data.currentCarouselIndex, cardPadding: 100, items: viewModel.data.roomImages, id: \.id) {roomImage, cardSize in
+                CarouselView(index: $viewModel.data.currentCarouselIndex, cardPadding: 100, items: viewModel.data.accommodation.roomImages, id: \.id) {roomImage, cardSize in
                     Image(roomImage.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -52,12 +51,7 @@ struct AccommodationDetailsView: View {
                 // TODO: add fading design to the bottom of the scroll view
                 ScrollView {
                     VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            Text(addressLabel)
-                                .bold()
-                            
-                            Text(viewModel.data.address)
-                        }
+                        AccommodationDetialsKeyValueView(key: addressLabel, value: viewModel.data.accommodation.address)
                         
                         HStack {
                             Text(geoLocationLabel)
@@ -75,55 +69,39 @@ struct AccommodationDetailsView: View {
                                 Button("OK", role: .cancel) {}
                             }
                             
-                            Text("\(viewModel.data.geoWidth), \(viewModel.data.geoLength)")
+                            Text("\(viewModel.data.accommodation.geoWidth), \(viewModel.data.accommodation.geoLength)")
                                 .onTapGesture {
                                     viewModel.openLocationOnMap()
                                 }
                         }
                         
-                        HStack {
-                            Text(roomTypeLabel)
-                                .bold()
-                            
-                            switch viewModel.data.roomType {
-                            case .apartment:
-                                Text(roomTypeApartmentLabel)
-                                
-                            case .couch:
-                                Text(roomTypeCouchLabel)
-                                
-                            case .room:
-                                Text(roomTypeRoomLabel)
-                            }
+                        switch viewModel.data.accommodation.roomType {
+                        case .apartment:
+                            AccommodationDetialsKeyValueView(key: roomTypeLabel, value: roomTypeApartmentLabel)
+                        case .couch:
+                            AccommodationDetialsKeyValueView(key: roomTypeLabel, value: roomTypeCouchLabel)
+                        case .room:
+                            AccommodationDetialsKeyValueView(key: roomTypeLabel, value: roomTypeRoomLabel)
                         }
                         
-                        HStack {
-                            Text(pricePerNightLabel)
-                                .bold()
-                            
-                            switch viewModel.data.currency {
+                        switch viewModel.data.accommodation.currency {
+                        case .HUF:
+                            AccommodationDetialsKeyValueView(key: pricePerNightLabel, value: "\(Int(viewModel.data.accommodation.price.rounded())) Ft")
+                        case .EUR:
+                            AccommodationDetialsKeyValueView(key: pricePerNightLabel, value: "€\(viewModel.data.accommodation.price)")
+                        case .USD:
+                            AccommodationDetialsKeyValueView(key: pricePerNightLabel, value: "$\(viewModel.data.accommodation.price)")
+                        }
+                        
+                        if viewModel.data.accommodation.isPayingWithChoresAccepted,
+                           let price = viewModel.data.accommodation.priceWithChores {
+                            switch viewModel.data.accommodation.currency {
                             case .HUF:
-                                Text("\(Int(viewModel.data.price.rounded())) Ft")
+                                AccommodationDetialsKeyValueView(key: price_per_night_with_chores_label, value: "\(Int(price.rounded())) Ft")
                             case .EUR:
-                                Text("€\(viewModel.data.price)")
+                                AccommodationDetialsKeyValueView(key: price_per_night_with_chores_label, value: "€\(price)")
                             case .USD:
-                                Text("$\(viewModel.data.price)")
-                            }
-                        }
-                        
-                        if (viewModel.data.isPayingWithChoresAccepted) {
-                            HStack {
-                                Text(price_per_night_with_chores_label)
-                                    .bold()
-                                
-                                switch viewModel.data.currency {
-                                case .HUF:
-                                    Text("\(Int(viewModel.data.priceWithChores.rounded())) Ft")
-                                case .EUR:
-                                    Text("€\(viewModel.data.priceWithChores)")
-                                case .USD:
-                                    Text("$\(viewModel.data.priceWithChores)")
-                                }
+                                AccommodationDetialsKeyValueView(key: price_per_night_with_chores_label, value: "$\(price)")
                             }
                         }
                         
@@ -132,8 +110,8 @@ struct AccommodationDetailsView: View {
                                 .bold()
                             
                             VStack(alignment: .leading, spacing: 1) {
-                                ForEach(0..<viewModel.data.acceptedPaymentMethods.count) {
-                                    switch viewModel.data.acceptedPaymentMethods[$0] {
+                                ForEach(0..<viewModel.data.accommodation.acceptedPaymentMethods.count) {
+                                    switch viewModel.data.accommodation.acceptedPaymentMethods[$0] {
                                     case .CASH:
                                         Text("– Készpénz")
                                     case .CARD:
@@ -145,60 +123,47 @@ struct AccommodationDetailsView: View {
                             }
                         }
                         
-                        HStack {
-                            Text(is_paying_with_chores_accepted_label)
-                                .bold()
-                            
-                            viewModel.data.isPayingWithChoresAccepted ? Text("✅") : Text("❌")
-                        }
+                        AccommodationDetialsKeyValueView(
+                            key: is_paying_with_chores_accepted_label,
+                            value: viewModel.data.accommodation.isPayingWithChoresAccepted ? "✅" : "❌"
+                        )
                         
-                        HStack {
-                            Text(maxGuestNumLabel)
-                                .bold()
-                            
-                            Text("\(viewModel.data.maxGuestNum) fő")
-                        }
+                        AccommodationDetialsKeyValueView(
+                            key: maxGuestNumLabel,
+                            value: "\(viewModel.data.accommodation.maxGuestNum) fő"
+                        )
                         
-                        HStack {
-                            Text(smokingLabel)
-                                .bold()
-                            
-                            viewModel.data.isNonSmoking ? Text("❌") : Text("✅")
-                        }
+                        AccommodationDetialsKeyValueView(
+                            key: smokingLabel,
+                            value: viewModel.data.accommodation.isNonSmoking ? "❌" : "✅"
+                        )
+
+                        AccommodationDetialsKeyValueView(
+                            key: petFriendlyLabel,
+                            value: viewModel.data.accommodation.isPetFriendly ? "✅" : "❌"
+                        )
                         
-                        HStack {
-                            Text(petFriendlyLabel)
-                                .bold()
-                            
-                            viewModel.data.isPetFriendly ? Text("✅") : Text("❌")
-                        }
+                        AccommodationDetialsKeyValueView(
+                            key: airConditionerLabel,
+                            value: viewModel.data.accommodation.isAirConditioned ? "✅" : "❌"
+                        )
                         
-                        HStack {
-                            Text(airConditionerLabel)
-                                .bold()
-                            
-                            viewModel.data.isAirConditioned ? Text("✅") : Text("❌")
-                        }
+                        AccommodationDetialsKeyValueView(
+                            key: parkingLabel,
+                            value: viewModel.data.accommodation.isParkingAvailable ? "✅" : "❌"
+                        )
                         
-                        HStack {
-                            Text(parkingLabel)
-                                .bold()
-                            
-                            viewModel.data.isParkingAvailable ? Text("✅") : Text("❌")
-                        }
+                        AccommodationDetialsKeyValueView(
+                            key: bicycleStorageLabel,
+                            value: viewModel.data.accommodation.isBicycleStorageAvailable ? "✅" : "❌"
+                        )
                         
-                        HStack {
-                            Text(bicycleStorageLabel)
-                                .bold()
-                            
-                            viewModel.data.isBicycleStorageAvailable ? Text("✅") : Text("❌")
-                        }
-                        
-                        HStack(alignment: .top) {
-                            Text(additionalInfoLabel)
-                                .bold()
-                            
-                            Text(viewModel.data.additionalInfo)
+                        if let additionalInfo = viewModel.data.accommodation.additionalInfo {
+                            AccommodationDetialsKeyValueView(
+                                key: additionalInfoLabel,
+                                value: additionalInfo,
+                                alignment: .top
+                            )
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

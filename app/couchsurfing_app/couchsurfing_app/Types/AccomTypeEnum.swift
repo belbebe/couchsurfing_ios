@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AccomTypeEnum {
+enum AccomTypeEnum: Equatable {
     case apartment
     case room
     case couch

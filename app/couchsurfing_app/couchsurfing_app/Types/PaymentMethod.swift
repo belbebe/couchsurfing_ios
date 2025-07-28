@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PaymentMethod {
+enum PaymentMethod: Equatable {
     case CASH
     case CARD
     case CHORE

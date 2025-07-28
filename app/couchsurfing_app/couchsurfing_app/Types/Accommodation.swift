@@ -7,16 +7,26 @@
 
 import Foundation
 
-struct Accommodation: Hashable, Identifiable {
+struct Accommodation: Hashable, Identifiable, Equatable {
     var id: Int
     var user_id: Int
     var address: String
-    var geo_long: Float
-    var geo_lat: Float
-    var type: AccomTypeEnum
-    var max_geust_num: Int
-    var other_needs: [OtherNeed]
-    var additional_info: String
-    var price_per_night: Float
-    var image: String
+    var geoLength: Float
+    var geoWidth: Float
+    var roomType: AccomTypeEnum
+    var maxGuestNum: Int
+    var otherNeeds: [OtherNeed]
+    var additionalInfo: String?
+    var price: Float
+    var priceWithChores: Float?
+    var currency: Currency
+    var acceptedPaymentMethods: [PaymentMethod]
+    var isPayingWithChoresAccepted: Bool
+    var isNonSmoking: Bool
+    var isPetFriendly: Bool
+    var isAirConditioned: Bool
+    var isParkingAvailable: Bool
+    var isBicycleStorageAvailable: Bool
+//    var image: String
+    var roomImages: [AccommodationImage]
 }

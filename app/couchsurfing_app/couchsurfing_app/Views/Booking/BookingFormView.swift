@@ -121,7 +121,7 @@ struct BookingFormView: View {
                 
                 // search button
                 Section {
-                    NavigationLink(destination: AccommListView()) {
+                    NavigationLink(destination: AccommodationListView()) {
                         Text(searchText)
                             .frame(maxWidth: .infinity, alignment: .center)
                     }

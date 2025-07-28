@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OtherNeed: Identifiable, Hashable {
+struct OtherNeed: Identifiable, Hashable, Equatable {
     var name: String
     var id = UUID()
 }

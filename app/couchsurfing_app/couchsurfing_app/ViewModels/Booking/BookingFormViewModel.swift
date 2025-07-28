@@ -146,14 +146,14 @@ public class BookingFormViewModel: ObservableObject {
 
 // MARK: - Data
 extension BookingFormViewModel {
-    public class Data: ObservableObject {
-        @Published var paymentMethods = [
+    public class Data {
+        var paymentMethods = [
             ListItem(name: "Készpénz"),
             ListItem(name: "Bankkártya"),
             //ListItem(name: "Ház körüli munka elfogadott")
         ]
         
-        @Published var otherNeeds = [
+        var otherNeeds = [
             ListItem(name: "Nem-dohányzó"),
             ListItem(name: "Állatbarát"),
             ListItem(name: "Légkondíciónáló"),
@@ -161,47 +161,47 @@ extension BookingFormViewModel {
             ListItem(name: "Bicikli tárolás biztosított")
         ]
         
-        @Published var bookingCity = ""
-        @Published var stayStartDate = Date()
-        @Published var stayEndDate = Date()
-        @Published var selectedPaymentMethod = "Készpénz"
+        var bookingCity = ""
+        var stayStartDate = Date()
+        var stayEndDate = Date()
+        var selectedPaymentMethod = "Készpénz"
         
-        @Published var preferredPriceCurrency: Currency = .HUF
-        @Published var preferredPriceRangeFrom = false {
+        var preferredPriceCurrency: Currency = .HUF
+        var preferredPriceRangeFrom = false {
             didSet {
                 if preferredPriceRangeFrom == false {
                     priceFrom = 0
                 }
             }
         }
-        @Published var preferredPriceRangeTo = false {
+        var preferredPriceRangeTo = false {
             didSet {
                 if preferredPriceRangeFrom == false {
                     priceTo = 0
                 }
             }
         }
-        @Published var priceFrom: Int = 0
-        @Published var priceTo: Int = 0
-        @Published var priceCurrencyPickerValues: [Currency] = [.HUF, .EUR, .USD]
+        var priceFrom: Int = 0
+        var priceTo: Int = 0
+        var priceCurrencyPickerValues: [Currency] = [.HUF, .EUR, .USD]
         
-        @Published var preferredRatingRangeFrom = false {
+        var preferredRatingRangeFrom = false {
             didSet {
                 if preferredRatingRangeFrom == false {
                     ratingFrom = 0.0
                 }
             }
         }
-        @Published var preferredRatingRangeTo = false {
+        var preferredRatingRangeTo = false {
             didSet {
                 if preferredRatingRangeTo == false {
                     ratingTo = 0.0
                 }
             }
         }
-        @Published var ratingFrom: Float = 0.0
-        @Published var ratingTo: Float = 0.0
+        var ratingFrom: Float = 0.0
+        var ratingTo: Float = 0.0
         
-        @Published var otherNeedsSelections = Set<UUID>()
+        var otherNeedsSelections = Set<UUID>()
     }
 }

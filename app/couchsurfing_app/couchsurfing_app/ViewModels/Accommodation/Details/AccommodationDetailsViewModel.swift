@@ -15,8 +15,8 @@ public class AccommodationDetailsViewModel: ObservableObject {
     @Published var data = Data()
     
     func openLocationOnMap() {
-        let latitude: CLLocationDegrees = Double(self.data.geoWidth)
-        let longitude: CLLocationDegrees = Double(self.data.geoLength)
+        let latitude: CLLocationDegrees = Double(self.data.accommodation.geoWidth)
+        let longitude: CLLocationDegrees = Double(self.data.accommodation.geoLength)
         let regionDistance: CLLocationDistance = 10000
         
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
@@ -36,27 +36,62 @@ public class AccommodationDetailsViewModel: ObservableObject {
 
 // MARK: - Data
 extension AccommodationDetailsViewModel {
-    public class Data: ObservableObject {
-        @State var currentCarouselIndex: Int = 0
-        @State var isTooltipAlertShown = false
-        // TODO: add Room object that is received from the list View
+    // TODO: evaluate if this needs to be ObservableObject
+    public class Data {
+        var currentCarouselIndex: Int = 0
+        var isTooltipAlertShown = false
         // TODO: remove the following dummy data after connecting the view with the list view
-        @State var address: String = "Budapest, Fő utca 1."
-        @State var geoLength: Float = 19.046716
-        @State var geoWidth: Float = 47.500952
-        @State var roomType: AccomTypeEnum = AccomTypeEnum.room
-        @State var price: Float = 10000.0
-        @State var priceWithChores: Float = 7500.0
-        @State var currency: Currency = .HUF
-        @State var acceptedPaymentMethods: [PaymentMethod] = [.CASH, .CARD]
-        @State var isPayingWithChoresAccepted: Bool = true
-        @State var maxGuestNum: Int = 3
-        @State var isNonSmoking: Bool = true
-        @State var isPetFriendly: Bool = true
-        @State var isAirConditioned: Bool = true
-        @State var isParkingAvailable: Bool = false
-        @State var isBicycleStorageAvailable: Bool = true
-        @State var additionalInfo: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        @State var roomImages: [AccommImage] = [AccommImage(image: "living_room"), AccommImage(image: "living_room2"), AccommImage(image: "bedroom")]
+        var accommodation: Accommodation = Accommodation(
+            id: 0,
+            user_id: 0,
+            address: "Budapest, Fő utca 1.",
+            geoLength: 19.046716,
+            geoWidth: 47.500952,
+            roomType: .room,
+            maxGuestNum: 3,
+            otherNeeds: [
+                OtherNeed(name: "Állatbarát"),
+                OtherNeed(name: "Nem-dohányzó"),
+                OtherNeed(name: "Légkondícionált"),
+                OtherNeed(name: "Biciklitároló")
+            ],
+            additionalInfo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            price: 5000,
+            priceWithChores: 2500,
+            currency: .HUF,
+            acceptedPaymentMethods: [
+                .CASH,
+                .CARD,
+                .CHORE
+            ],
+            isPayingWithChoresAccepted: true,
+            isNonSmoking: true,
+            isPetFriendly: true,
+            isAirConditioned: true,
+            isParkingAvailable: false,
+            isBicycleStorageAvailable: true,
+            roomImages: [
+                AccommodationImage(image: "living_room"),
+                AccommodationImage(image: "living_room2"),
+                AccommodationImage(image: "bedroom")
+            ]
+        )
+//        var address: String = "Budapest, Fő utca 1."
+//        var geoLength: Float = 19.046716
+//        var geoWidth: Float = 47.500952
+//        var roomType: AccomTypeEnum = AccomTypeEnum.room
+//        var price: Float = 10000.0
+//        var priceWithChores: Float = 7500.0
+//        var currency: Currency = .HUF
+//        var acceptedPaymentMethods: [PaymentMethod] = [.CASH, .CARD]
+//        var isPayingWithChoresAccepted: Bool = true
+//        var maxGuestNum: Int = 3
+//        var isNonSmoking: Bool = true
+//        var isPetFriendly: Bool = true
+//        var isAirConditioned: Bool = true
+//        var isParkingAvailable: Bool = false
+//        var isBicycleStorageAvailable: Bool = true
+//        var additionalInfo: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+//        var roomImages: [AccommodationImage] = [AccommodationImage(image: "living_room"), AccommodationImage(image: "living_room2"), AccommodationImage(image: "bedroom")]
     }
 }

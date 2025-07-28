@@ -16,14 +16,14 @@ public class RentFormViewModel: ObservableObject {
 
 // MARK: - Data
 extension RentFormViewModel {
-    public class Data: ObservableObject {
-        @State var paymentMethods = [
+    public class Data {
+        var paymentMethods = [
             ListItem(name: "Készpénz"),
             ListItem(name: "Bankkártya"),
             ListItem(name: "Ellenszolgáltatás")
         ]
         
-        @State var otherNeeds = [
+        var otherNeeds = [
             ListItem(name: "Nem-dohányzó"),
             ListItem(name: "Állatbarát"),
             ListItem(name: "Légkondíciónáló"),
@@ -31,13 +31,13 @@ extension RentFormViewModel {
             ListItem(name: "Bicikli tárolás biztosított")
         ]
         
-        @State var rentCity: String = ""
-        @State var rentPostalCode: String = ""
-        @State var rentStreet: String = ""
-        @State var rentLatitude:  String = ""
-        @State var rentLongitude: String = ""
-        @State var accomodationTypes = ["Apartman", "Szoba", "Kanapé"]
-        @State var selectedAccomodationType = "Apartman"
-        @State var pricePerNight = 0.0
+        var rentCity: String = ""
+        var rentPostalCode: String = ""
+        var rentStreet: String = ""
+        var rentLatitude:  String = ""
+        var rentLongitude: String = ""
+        var accomodationTypes = ["Apartman", "Szoba", "Kanapé"]
+        var selectedAccomodationType = "Apartman"
+        var pricePerNight = 0.0
     }
 }
