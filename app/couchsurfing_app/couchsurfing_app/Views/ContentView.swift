@@ -18,7 +18,6 @@ struct ContentView: View {
         //TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
         TabView {
             // "Foglalás" tab
-            //BookingView()
             BookingFormView()
                 .tabItem {
                     Label(booking_tab_text, systemImage: "calendar")

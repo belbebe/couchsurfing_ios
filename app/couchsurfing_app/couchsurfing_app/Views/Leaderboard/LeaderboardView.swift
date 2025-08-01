@@ -12,19 +12,24 @@ struct LeaderboardView: View {
     private let picker_label = ""
     private let picker_texts = ["Foglalók", "Kiadók"]
     
-    @State private var example_renters = [
-        UserLeaderboardInfo(name_text: "Minta Béla", score: 1530),
-        UserLeaderboardInfo(name_text: "Minta József", score: 1000),
-        UserLeaderboardInfo(name_text: "Példa Eszter", score: 1670),
-        UserLeaderboardInfo(name_text: "Pl Ubul", score: 890)
-    ]
-    @State private var example_owners = [
-        UserLeaderboardInfo(name_text: "Minta Béla", score: 900),
-        UserLeaderboardInfo(name_text: "Példa Eszter", score: 2340),
-        UserLeaderboardInfo(name_text: "Minta József", score: 1100),
-        UserLeaderboardInfo(name_text: "Pl Ubul", score: 500)
-    ]
+    // TODO: use leaderbord data fetched from the BE
     @State private var picker_state = "Foglalók"
+    @StateObject private var viewModel = LeaderboardViewModel(
+        data: LeaderboardViewModel.Data(
+            renters: [
+                UserLeaderboardInfo(name_text: "Minta Béla", score: 1530),
+                UserLeaderboardInfo(name_text: "Minta József", score: 1000),
+                UserLeaderboardInfo(name_text: "Példa Eszter", score: 1670),
+                UserLeaderboardInfo(name_text: "Pl Ubul", score: 890)
+            ],
+            owners: [
+                UserLeaderboardInfo(name_text: "Minta Béla", score: 900),
+                UserLeaderboardInfo(name_text: "Példa Eszter", score: 2340),
+                UserLeaderboardInfo(name_text: "Minta József", score: 1100),
+                UserLeaderboardInfo(name_text: "Pl Ubul", score: 500)
+            ]
+        )
+    )
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(CouchSurfingCustomColor.buttonBackground)
@@ -34,30 +39,12 @@ struct LeaderboardView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // leaderboard selection
-                Picker(picker_label, selection: $picker_state) {
-                    ForEach(picker_texts, id: \.self) {
-                        Text($0)
-                            .background(CouchSurfingCustomColor.buttonBackground)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .padding()
+                LeaderboardPickerView(viewModel: viewModel)
                 
-                if(picker_state == "Foglalók") {
-                    List {
-                        ForEach(0..<example_renters.count) { index in
-                            UserLeaderboardView(user_info: example_renters[index])
-                        }
-                    }
-                    .listStyle(.grouped)
-                } else if(picker_state == "Kiadók") {
-                    List {
-                        ForEach(0..<example_owners.count) { index in
-                            UserLeaderboardView(user_info: example_owners[index])
-                        }
-                    }
-                    .listStyle(.grouped)
+                if viewModel.data.pickerState == LeaderboardPickerView.Options.renters.rawValue {
+                    LeaderboardListView(leaderBoardInfo: viewModel.data.renters)
+                } else {
+                    LeaderboardListView(leaderBoardInfo: viewModel.data.owners)
                 }
             }
             .navigationTitle(nav_title)
@@ -78,17 +65,3 @@ extension Sequence {
         }
     }
 }
-
-/*
- if(picker_state == "Foglalók") {
-     example_renters = example_renters.sorted(by: \.score)
-     ForEach(0..<example_renters.count) { index in
-         UserLeaderboardView(example_renters[index])
-     }
- } else {
-     example_owners = example_owners.sorted(by: \.score)
-     ForEach(example_owners) {
-         $0
-     }
- }
- */

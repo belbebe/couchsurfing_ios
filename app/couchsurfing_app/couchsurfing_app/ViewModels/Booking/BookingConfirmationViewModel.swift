@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import MapKit
-import SwiftData
 import SwiftUI
 
 @MainActor
