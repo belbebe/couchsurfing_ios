@@ -171,7 +171,7 @@ struct AccommodationDetailsView: View {
                 .padding(.bottom, 8)
                 
                 HStack (spacing: 16) {
-                    NavigationLink(destination: ConfirmBookingView()) {
+                    NavigationLink(destination: BookingConfirmationView()) {
                         Text(bookButtonLabel)
                     }
                     .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))

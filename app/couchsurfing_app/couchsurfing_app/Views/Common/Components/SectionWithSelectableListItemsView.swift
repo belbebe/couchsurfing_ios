@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct SectionWithSelectableListItemsView<H: View>: View {
-    @State var listItems: [ListItem]
+    @Binding var listItems: [ListItem]
     var header: H
     
-    init(listItems: [ListItem], header: H) {
-        self.listItems = listItems
-        self.header = header
-    }
+//    init(listItems: [ListItem], header: H) {
+//        self.listItems = listItems
+//        self.header = header
+//    }
     
     var body: some View {
         Section {
             List {
-                ForEach(0..<listItems.count, id: \.self) {index in
+                ForEach(0..<listItems.count, id: \.self) { index in
                     Button(action: {
                         listItems[index].isSelected = listItems[index].isSelected ? false : true
                     }) {
@@ -34,6 +34,6 @@ struct SectionWithSelectableListItemsView<H: View>: View {
     }
 }
 
-#Preview {
-    SectionWithSelectableListItemsView(listItems: [], header: Text("Header"))
-}
+//#Preview {
+//    SectionWithSelectableListItemsView(listItems: [], header: Text("Header"))
+//}

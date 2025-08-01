@@ -60,7 +60,7 @@ struct RentFormView: View {
                 
                 // accepted payment methods
                 SectionWithSelectableListItemsView(
-                    listItems: viewModel.data.paymentMethods,
+                    listItems: $viewModel.data.paymentMethods,
                     header: Text(paymentMethodLabel)
                 )
                 
@@ -75,7 +75,7 @@ struct RentFormView: View {
                 
                 // properties/meeting other needs
                 SectionWithSelectableListItemsView(
-                    listItems: viewModel.data.otherNeeds,
+                    listItems: $viewModel.data.otherNeeds,
                     header: Text(propertiesLabel)
                 )
                 

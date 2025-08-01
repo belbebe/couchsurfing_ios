@@ -93,7 +93,9 @@ struct AccommodationListView: View {
         NavigationView {
             List {
                 ForEach(0..<results.count) { index in
-                    AccommListItemView(accommodation: results[index])
+                    NavigationLink(destination: AccommodationDetailsView()) {
+                        AccommListItemView(accommodation: results[index])
+                    }
                 }
             }
             .navigationTitle(nav_title)

@@ -50,7 +50,7 @@ struct BookingFormView: View {
                 
                 // preferred payment method
                 SectionWithSelectableListItemsView(
-                    listItems: viewModel.data.paymentMethods,
+                    listItems: $viewModel.data.paymentMethods,
                     header: Text(paymentMethodText)
                 )
                 
@@ -115,7 +115,7 @@ struct BookingFormView: View {
                 
                 // other needs
                 SectionWithSelectableListItemsView(
-                    listItems: viewModel.data.otherNeeds,
+                    listItems: $viewModel.data.otherNeeds,
                     header: Text(otherNeedsText)
                 )
                 
