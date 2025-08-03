@@ -116,7 +116,7 @@ struct ProfileView: View {
                         Spacer()
                             .frame(height: 15)
                         // Jelszó módosítása
-                        NavigationLink(destination: SettingsPasswordViewForm()) {
+                        NavigationLink(destination: SettingsPasswordFormView()) {
                             Text(modify_passw_button_text)
                         }
                             .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
