@@ -13,13 +13,16 @@ public struct User {
     let birthDate: Date
     let email: String
     let phoneNumber: String
+    // TODO: modify this to image asset
+    let profilePicture: String
     
     init(
         name: String,
         username: String,
         birthDate: String,
         email: String,
-        phoneNumber: String
+        phoneNumber: String,
+        profilePicture: String = "person.circle.fill"
     ) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -28,6 +31,7 @@ public struct User {
         self.birthDate = formatter.date(from: birthDate) ?? Date()
         self.email = email
         self.phoneNumber = phoneNumber
+        self.profilePicture = profilePicture
     }
     
     init(
@@ -35,13 +39,15 @@ public struct User {
         username: String,
         birthDate: Date,
         email: String,
-        phoneNumber: String
+        phoneNumber: String,
+        profilePicture: String = "person.circle.fill"
     ) {
         self.name = name
         self.username = username
         self.birthDate = birthDate
         self.email = email
         self.phoneNumber = phoneNumber
+        self.profilePicture = profilePicture
     }
     
     var birthDateString: String {

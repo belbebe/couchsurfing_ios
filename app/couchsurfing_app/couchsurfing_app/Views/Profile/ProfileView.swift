@@ -108,7 +108,7 @@ struct ProfileView: View {
                             .frame(height: 15)
                         
                         // Adatok módosítása
-                        NavigationLink(destination: SettingsProfileViewForm()) {
+                        NavigationLink(destination: SettingsProfileFormView()) {
                             Text(modify_data_button_text)
                         }
                         .modifier(ButtonDesignModifier(color: CouchSurfingCustomColor.buttonBackground, background: CouchSurfingCustomColor.baseColor))
