@@ -10,16 +10,25 @@ import SwiftUI
 struct OtherUserProfileView: View {
     private var nav_title: String = "profilja"
     private var name_text: String = "Név"
-    private var sample_name: String = "Minta Béla"
     private var username_text: String = "Felhasználói név"
-    private var sample_username: String = "minta_bela_user"
     private var date_of_birth: String = "Születési dátum"
-    private var sample_birth_date: String = "1980. 01. 01."
     private var email_text: String = "Email"
     private var sample_email: String = "minta_bela@valami.hu"
     private var phone_text: String = "Telefon"
-    private var sample_phone: String = "555-12-333"
     private var start_chat_text: String = "Csevegés indítása"
+    
+    @StateObject private var viewModel = OtherUserProfileViewModel(
+        data: OtherUserProfileViewModel.Data(
+            user: User(
+                name: "Minta Géza",
+                username: "minta_geza_user",
+                birthDate: "1980. 01. 01.",
+                email: "minta_geza@valami.hu",
+                phoneNumber: "555-12-333",
+                profilePicture: "person.circle.fill"
+            )
+        )
+    )
     
     var body: some View {
         NavigationView {
@@ -33,40 +42,40 @@ struct OtherUserProfileView: View {
                             VStack(alignment: .leading) {
                                 Text(name_text)
                                     .font(.body)
-                                Text(sample_name)
+                                Text(viewModel.data.user.name)
                                     .font(Font.body.weight(.bold))
                             }
                             
                             VStack(alignment: .leading) {
                                 Text(username_text)
                                     .font(.body)
-                                Text(sample_username)
+                                Text(viewModel.data.user.username)
                                     .font(Font.body.weight(.bold))
                             }
                             
                             VStack(alignment: .leading) {
                                 Text(date_of_birth)
                                     .font(.body)
-                                Text(sample_birth_date)
+                                Text(viewModel.data.user.birthDateString)
                                     .font(Font.body.weight(.bold))
                             }
                             
                             VStack(alignment: .leading) {
                                 Text(email_text)
                                     .font(.body)
-                                Text(sample_email)
+                                Text(viewModel.data.user.email)
                                     .font(Font.body.weight(.bold))
                             }
                             
                             VStack(alignment: .leading) {
                                 Text(phone_text)
                                     .font(.body)
-                                Text(sample_phone)
+                                Text(viewModel.data.user.phoneNumber)
                                     .font(Font.body.weight(.bold))
                             }
                         }
                         
-                        Image(systemName: "person.circle.fill")
+                        Image(systemName: viewModel.data.user.profilePicture)
                             .resizable()
                             .frame(width: 130, height: 130, alignment: .trailing)
                     }
@@ -85,7 +94,7 @@ struct OtherUserProfileView: View {
                     }
                 }
             }
-            .navigationTitle("\(sample_name) \(nav_title)")
+            .navigationTitle("\(viewModel.data.user.name) \(nav_title)")
         }
     }
 }
