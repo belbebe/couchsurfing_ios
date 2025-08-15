@@ -9,11 +9,12 @@ import SwiftUI
 
 struct LoginView: View {
     @Environment(\.colorScheme) var colorScheme
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                Image("Couchsurfing app - Logo", label: Text("Logo"))
+                Image(viewModel.data.imageAssetName, label: Text(viewModel.data.imageLabel))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(alignment: .top)
