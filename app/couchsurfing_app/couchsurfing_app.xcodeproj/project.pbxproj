@@ -17,23 +17,12 @@
 		239B025D27D0415D0055AEBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		23B7F5B42E2ED0A100FB1833 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Chat/ChatMessage.swift,
-			);
-			target = 239B025527D0415C0055AEBA /* couchsurfing_app */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		23B7F5B22E2ED0A100FB1833 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (23B7F5B42E2ED0A100FB1833 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		23B7F5C02E2ED0B300FB1833 /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
 		23B7F6082E2ED0D100FB1833 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 		23B7F6252E2ED0F200FB1833 /* Deprecated */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Deprecated; sourceTree = "<group>"; };
 		23B7F6292E2ED0F500FB1833 /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
-		23B7F6372E2ED24A00FB1833 /* Types */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Types; sourceTree = "<group>"; };
+		23B7F6372E2ED24A00FB1833 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		23B7F7072E2EDA6600FB1833 /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -67,12 +56,11 @@
 		239B025827D0415C0055AEBA /* couchsurfing_app */ = {
 			isa = PBXGroup;
 			children = (
-				23B7F5B22E2ED0A100FB1833 /* Models */,
+				23B7F6372E2ED24A00FB1833 /* Models */,
 				23B7F5C02E2ED0B300FB1833 /* Utils */,
 				23B7F7072E2EDA6600FB1833 /* ViewModels */,
 				23B7F6082E2ED0D100FB1833 /* Views */,
 				239B025927D0415C0055AEBA /* couchsurfing_appApp.swift */,
-				23B7F6372E2ED24A00FB1833 /* Types */,
 				239B025D27D0415D0055AEBA /* Assets.xcassets */,
 				23B7F6292E2ED0F500FB1833 /* Preview Content */,
 				23B7F6252E2ED0F200FB1833 /* Deprecated */,
@@ -100,7 +88,7 @@
 				23B7F6082E2ED0D100FB1833 /* Views */,
 				23B7F6252E2ED0F200FB1833 /* Deprecated */,
 				23B7F6292E2ED0F500FB1833 /* Preview Content */,
-				23B7F6372E2ED24A00FB1833 /* Types */,
+				23B7F6372E2ED24A00FB1833 /* Models */,
 				23B7F7072E2EDA6600FB1833 /* ViewModels */,
 			);
 			name = couchsurfing_app;

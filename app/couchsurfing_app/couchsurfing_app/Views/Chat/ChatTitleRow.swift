@@ -8,25 +8,27 @@
 import SwiftUI
 
 struct ChatTitleRow: View {
-    let titleRowUser: ChatTitleRowUser
+    @ObservedObject private var viewModel: ChatConversationViewModel
+    
+    init(viewModel: ChatConversationViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         HStack(spacing: 20) {
             // AsyncImage is needed if the image is loaded via URL from the internet
-            Image(systemName: titleRowUser.profilePicture)
+            Image(systemName: viewModel.data.chatPartner.profilePicture)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 50, height: 50)
                 .cornerRadius(50)
             
             VStack(alignment: .leading) {
-                Text(titleRowUser.name)
+                Text(viewModel.data.chatPartner.name)
                     .font(.title).bold()
                 
-                if let unwrappedUsername: String = titleRowUser.username {
-                    Text(unwrappedUsername)
-                        .font(.caption)
-                }
+                Text(viewModel.data.chatPartner.username)
+                    .font(.caption)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -35,6 +37,6 @@ struct ChatTitleRow: View {
 }
 
 #Preview {
-    ChatTitleRow(titleRowUser: ChatTitleRowUser(name: "Példa Béla", profilePicture: "person.circle"))
+    ChatTitleRow(viewModel: ChatConversationViewModel())
         .background(Color("CouchSurfingChatTitleRow"))
 }
