@@ -22,7 +22,7 @@ struct ProfileView: View {
     private var view_bookings_text: String = "Foglalások megtekintése"
     
     // TODO: remove dummy data and add user data from BE
-    @StateObject var viewModel = ProfileViewModel(
+    @StateObject private var viewModel = ProfileViewModel(
         data: .init(user: User(
             name: "Minta Béla",
             username: "minta_bela_user",

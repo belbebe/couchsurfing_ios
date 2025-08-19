@@ -21,8 +21,8 @@ struct SettingsPasswordFormView: View {
     
     // TODO: fix dialog showing (e.g. on confirmation screen tooltip tap)
     
-    @FocusState var textfield_is_focused: Bool
-    @StateObject var viewModel = SettingsPasswordFormViewModel(data: .init(oldPassword: "example"))
+    @FocusState private var textfield_is_focused: Bool
+    @StateObject private var viewModel = SettingsPasswordFormViewModel(data: .init(oldPassword: "example"))
     
     var body: some View {
         Form {

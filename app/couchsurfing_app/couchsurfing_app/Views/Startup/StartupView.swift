@@ -14,10 +14,7 @@ struct StartupView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image("Couchsurfing app - Logo", label: Text("Logo"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(alignment: .top)
+                LogoComponent()
                 
                 // log in
                 NavigationLink(destination: LoginView()) {
