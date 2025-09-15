@@ -15,26 +15,27 @@ struct LoginFormView: View {
     private let empty_username_dialog_text = "Kérlek, adj meg egy felhasználónevet vagy email-címet!"
     private let empty_password_dialog_text = "Kérlek, add meg a jelszavad!"
     private let wrong_pw_dialog_text = "A megadott jelszó helytelen. Kérlek, próbáld meg ismét!"
-    
-    private let correct_pw_example = "example" // "jelenlegi jelszó" a működés teszteléséhez
-    
-    @State private var username_email_state = ""
-    @State private var password_state = ""
+
     @State private var empty_username_dialog_state = false
     @State private var empty_pw_dialog_state = false
     @State private var wrong_pw_dialog_state = false
     @FocusState private var textfiled_is_focused_state: Bool
+    @ObservedObject private var viewModel: LoginViewModel
+    
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         Form {
             // input text fields
             Section {
                 // username or email
-                TextField(username_email_placeholder, text: $username_email_state)
+                TextField(username_email_placeholder, text: $viewModel.data.usernameOrEmail)
                     .focused($textfiled_is_focused_state)
                 
                 // password
-                SecureField(password_placeholder, text: $password_state, prompt: Text(password_placeholder))
+                SecureField(password_placeholder, text: $viewModel.data.password, prompt: Text(password_placeholder))
                     .focused($textfiled_is_focused_state)
             }
             
@@ -42,14 +43,14 @@ struct LoginFormView: View {
             Section {
                 // login
                 Button(action: {() in
-                    wrong_pw_dialog_state = (password_state != "" && password_state != correct_pw_example)
+                    wrong_pw_dialog_state = (viewModel.data.password != "" && viewModel.data.password != viewModel.data.currentPassword)
                     
-                    empty_username_dialog_state = username_email_state == ""
+                    empty_username_dialog_state = viewModel.data.usernameOrEmail == ""
                     
-                    empty_pw_dialog_state = password_state == ""
+                    empty_pw_dialog_state = viewModel.data.password == ""
                     
                     if(!wrong_pw_dialog_state && !empty_username_dialog_state && !empty_pw_dialog_state) {
-                        // bejelentkezés funkció megvalósítás
+                        // TODO: login after BE integration
                     }
                 }) {
                     Text(login_btn_text)
@@ -71,7 +72,7 @@ struct LoginFormView: View {
             Section {
                 // forgotten password
                 Button(action: {() in
-                    empty_username_dialog_state = username_email_state == ""
+                    empty_username_dialog_state = viewModel.data.usernameOrEmail == ""
                     
                     if(!empty_username_dialog_state) {
                         // elfelejtett jelszó funkció megvalósítás
@@ -91,6 +92,6 @@ struct LoginFormView: View {
 
 struct LoginFormView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginFormView()
+        LoginFormView(viewModel: LoginViewModel())
     }
 }

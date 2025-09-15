@@ -54,12 +54,14 @@ struct AccommListItemView: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 20) {
-            Image(systemName: accommodation.image)
-                .resizable()
-                .scaledToFit()
+            if let image = accommodation.roomImages.first {
+                Image(systemName: image.image)
+                    .resizable()
+                    .scaledToFit()
+            }
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(process_accom_type(type: accommodation.type))
+                Text(process_accom_type(type: accommodation.roomType))
                     .font(Font.body.weight(.bold))
                 
                 Text(accommodation.address)
@@ -69,11 +71,11 @@ struct AccommListItemView: View {
                     .font(.body)
                 */
                 
-                Text(other_needs_text + process_other_needs(other: accommodation.other_needs))
+                Text(other_needs_text + process_other_needs(other: accommodation.otherNeeds))
                     .font(.body)
             }
             
-            Text(process_price_per_night(price: accommodation.price_per_night))
+            Text(process_price_per_night(price: accommodation.price))
                 .font(Font.body.weight(.bold))
         }
         .padding(5)
@@ -82,9 +84,34 @@ struct AccommListItemView: View {
 
 struct AccommListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AccommListItemView(accommodation: Accommodation(id: 1, user_id: 1, address: "Fő utca 1., Budapest", geo_long: 1.1, geo_lat: 1.1, type: .apartment, max_geust_num: 2, other_needs: [
-            OtherNeed(name: "Nem-dohányzó"),
-            OtherNeed(name: "Állatbarát")
-        ], additional_info: "Info placeholder", price_per_night: 10000, image: "house.circle.fill"))
+        AccommListItemView(
+            accommodation: Accommodation(
+                id: 0,
+                user_id: 1,
+                address: "Budapest, Fő utca 1.",
+                geoLength: 1.1,
+                geoWidth: 1.1,
+                roomType: .apartment,
+                maxGuestNum: 2,
+                otherNeeds: [
+                    OtherNeed(name: "Állatbarát"),
+                    OtherNeed(name: "Nem-dohányzó"),
+                    OtherNeed(name: "Légkondícionált"),
+                    OtherNeed(name: "Biciklitároló")
+                ],
+                additionalInfo: "",
+                price: 5000,
+                priceWithChores: 2500,
+                currency: .HUF,
+                acceptedPaymentMethods: [.CHORE, .CASH, .CARD],
+                isPayingWithChoresAccepted: true,
+                isNonSmoking: true,
+                isPetFriendly: true,
+                isAirConditioned: true,
+                isParkingAvailable: false,
+                isBicycleStorageAvailable: true,
+                roomImages: [.init(image: "house.circle.fill")]
+            )
+        )
     }
 }

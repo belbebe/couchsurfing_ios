@@ -8,26 +8,24 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colorScheme) private var colorScheme
+    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                Image("Couchsurfing app - Logo", label: Text("Logo"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(alignment: .top)
+                LogoComponent()
                 
                 if #available(iOS 16.0, *) {
-                    LoginFormView()
+                    LoginFormView(viewModel: viewModel)
                         .scrollContentBackground(.hidden)
                         .scrollDisabled(true)
                 } else if(colorScheme == .dark) {
-                    LoginFormView()
+                    LoginFormView(viewModel: viewModel)
                         .background(Color.black)
                         .modifier(DisableScrolling(disabled: true))
                 } else {
-                    LoginFormView()
+                    LoginFormView(viewModel: viewModel)
                         .background(Color.white)
                         .modifier(DisableScrolling(disabled: true))
                 }

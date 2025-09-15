@@ -10,19 +10,22 @@ import SwiftUI
 struct MessageField: View {
     let messageFieldPlaceholder = "Írd ide az üzeneted!"
     
-    @State private var message = ""
+    @ObservedObject private var viewModel: ChatConversationViewModel
+    
+    init(viewModel: ChatConversationViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         HStack {
-            CustomTextField(placeholder: Text(messageFieldPlaceholder), text: $message)
+            CustomTextField(placeholder: Text(messageFieldPlaceholder), text: $viewModel.data.textField)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 50)
                         .stroke(Color("CouchSurfingChatBubbleReceived"), lineWidth: 2))
             
             Button {
-                print("Message sent!")
-                message = ""
+                viewModel.sendButtonTapped()
             } label: {
                 Image(systemName: "arrow.up")
                     .foregroundColor(.white)
@@ -38,5 +41,5 @@ struct MessageField: View {
 }
 
 #Preview {
-    MessageField()
+    MessageField(viewModel: ChatConversationViewModel())
 }

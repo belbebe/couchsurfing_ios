@@ -8,26 +8,24 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colorScheme) private var colorScheme
+    @StateObject private var viewModel = RegistrationViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                Image("Couchsurfing app - Logo", label: Text("Logo"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(alignment: .top)
+                LogoComponent()
                 
                 if #available(iOS 16.0, *) {
-                    RegistrationFormView()
+                    RegistrationFormView(viewModel: viewModel)
                         .scrollContentBackground(.hidden)
                         .scrollDisabled(true)
                 } else if(colorScheme == .dark) {
-                    RegistrationFormView()
+                    RegistrationFormView(viewModel: viewModel)
                         .background(Color.black)
                         .modifier(DisableScrolling(disabled: true))
                 } else {
-                    RegistrationFormView()
+                    RegistrationFormView(viewModel: viewModel)
                         .background(Color.white)
                         .modifier(DisableScrolling(disabled: true))
                 }
